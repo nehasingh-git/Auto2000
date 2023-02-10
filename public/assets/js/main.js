@@ -25,6 +25,6 @@ function registrationVehicle() {
     alert("Please Enter Valid Registration Number.")
   }
   else {
-    window.location.href = "./appointment.html?regNo=" + ele.value ;
+    window.location.href = "./appointment/" + ele.value ;
   } 
 }

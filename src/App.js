@@ -31,8 +31,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(partialResponse());
 
 var publicDirPath =path.join(__dirname, "../");
-// console.log(publicDirPath);
-// console.log(__dirname);
 app.use(express.static(publicDirPath + '/public', { maxAge: oneHour }));
  
 

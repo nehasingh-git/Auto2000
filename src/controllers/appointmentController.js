@@ -11,6 +11,34 @@ module.exports = (function () {
 	constants = require('../constants');
 	//Http request Functions   
 
+	function index(req, res) {
+		try {
+		 
+			res.render('index', {
+				layout: "layoutSite"
+			});
+		} catch (error) {
+			console.error(error);
+			res.sendStatus(500).end(JSON.stringify({
+				error: "error"
+			}))
+		}
+	};
+	
+	function contact(req, res) {
+		try {
+		 
+			res.render('contact', {
+				layout: "layoutSite"
+			});
+		} catch (error) {
+			console.error(error);
+			res.sendStatus(500).end(JSON.stringify({
+				error: "error"
+			}))
+		}
+	};
+
 	function getPricing(req, res) {
 		try {
 			var regNo = req.params.regNo;
@@ -28,10 +56,10 @@ module.exports = (function () {
 			}))
 		}
 	};
- 
 
+	retVal.index = index;
+	retVal.contact = contact;
 	retVal.pricing = getPricing;
-	
 	// return module
 	return retVal;
 })();

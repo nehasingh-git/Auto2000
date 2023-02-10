@@ -270,7 +270,7 @@ module.exports = (function () {
   
     var renderJs = function (file) {
       var isBundle = isMinified == true ? 'bundle/' : '';
-      var scriptPath = '<script type="text/javascript" src="/js/' + isBundle + file + '.js?' + version + '"></script>';
+      var scriptPath = '<script type="text/javascript" src="../public/assets/js/' + isBundle + file + '.js?' + version + '"></script>';
       return scriptPath;
     }
   

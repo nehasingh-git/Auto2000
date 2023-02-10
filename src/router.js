@@ -17,6 +17,8 @@ errorController = require('./controllers/errorController');
   router = express.Router();
 
   //map routes for index controller  
+  router.route('/').get(appointmentController.index);
+  router.route('/contact').get(appointmentController.contact);
   router.route('/appointment/:regNo').get(appointmentController.pricing);
   router.route('/403').get(errorController.unAuthorize);
   router.route('/404').get(errorController.notFound);

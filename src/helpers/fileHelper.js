@@ -9,8 +9,8 @@ module.exports = (function () {
     constants = require('../constants');
 
     function readFile(fileName, folderName) {
-        try {
-            var dirPath = path.join(__dirname, '../public/data/', folderName, fileName);
+        try { 
+            var dirPath = path.join(__dirname, '../data/', folderName, fileName);
             var obj = JSON.parse(fs.readFileSync(dirPath, 'utf8'));
             return obj;
         } catch (error) {
