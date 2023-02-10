@@ -12,7 +12,7 @@ module.exports = (function () {
     }
 
     retVal.folderPaths = {
-        dataDirPath: path.join(__dirname, '/public'),
+        dataDirPath: path.join(__dirname, '../public'),
     }
 
    
