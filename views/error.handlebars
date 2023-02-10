@@ -1,0 +1,58 @@
+<div class="container full valing-wrapper error-page">
+    <div class="section">
+        <div class="center row">
+
+            {{#ifCond status '==' 404}}
+            <h1 class="col l4 s12 m4 row red-text error-heading-font">
+                <div class="col s12 l12">4<i class="fa fa-grav fa-2x" aria-hidden="true"></i>4</div>
+            </h1>
+            <div class="col l8 s12 m8">
+                <h1 class="row red-text center txt-page-not-found ">Page Not Found</h1>
+
+                <h2 class="row center"> {{message}} </h2>
+                <h3 class="row "> Take me to
+                </h3>
+
+                <div class="row">
+                    <a href="/" class="btn l4 s4 m4 btn-large-base"> Home Page</a>
+                </div>
+            </div>
+            {{/ifCond}}
+
+            {{#ifCond status '==' 401}}
+            <h1 class="col l4 s12 m4 row red-text error-heading-font">
+                <div class="col s12 l12">4<i class="fa fa-lock fa-2x" aria-hidden="true"></i>1</div>
+            </h1>
+            <div class="col l8 s12 m8">
+                <h1 class="row red-text center txt-page-not-found ">Unauthorized</h1>
+
+                <h2 class="row center"> {{message}} </h2>
+                <h3 class="row "> Take me to
+                </h3>
+
+                <div class="row">
+                    <a href="/" class="btn l4 s4 m4 btn-large-base"> Home Page</a>
+                </div>
+            </div>
+            {{/ifCond}}
+
+            {{#ifCond status '==' 500}}
+            <h1 class="col l4 s12 m4 row red-text error-heading-font">
+                <div class="col s12 l12">5<i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i>0</div>
+            </h1>
+            <div class="col l8 s12 m8">
+                <h1 class="row red-text center txt-page-not-found ">Internal Server Error</h1>
+
+                <h2 class="row center"> {{message}} </h2>
+                <h3 class="row "> Take me to
+                </h3>
+
+                <div class="row">
+                    <a href="/" class="btn l4 s4 m4 btn-large-base"> Home Page</a>
+                </div>
+            </div>
+            {{/ifCond}}
+        </div>
+    </div>
+</div>
+{{> master/footer}}
