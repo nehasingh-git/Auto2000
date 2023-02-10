@@ -6,14 +6,14 @@ module.exports = (function () {
 	fs = require("fs");
 	handlebars = require('handlebars');
 	handlebarshelper = require('./../helpers/handlebars-helpers');
-	fileHelper= require('./../helpers/fileHelper');
+	fileHelper = require('./../helpers/fileHelper');
 	handlebars.registerHelper(handlebarshelper);
 	constants = require('../constants');
 	//Http request Functions   
 
 	function index(req, res) {
 		try {
-		 
+
 			res.render('index', {
 				layout: "layoutSite"
 			});
@@ -24,10 +24,10 @@ module.exports = (function () {
 			}))
 		}
 	};
-	
+
 	function contact(req, res) {
 		try {
-		 
+
 			res.render('contact', {
 				layout: "layoutSite"
 			});
@@ -42,9 +42,25 @@ module.exports = (function () {
 	function getPricing(req, res) {
 		try {
 			var regNo = req.params.regNo;
-			 console.log(regNo)
 			allPricing = fileHelper.readFile("pricing.json", "pricing");
-			console.log(allPricing)
+			let data = {};
+			if (allPricing && allPricing.data) {
+				//data = allPricing.data.find(o => o.key === regNo);
+				var obj = allPricing.data;
+				console.log("-------------------")
+				//console.log(temp);
+				//var found = temp.find(e => e.id === '993');
+				//console.log(found);
+				// var obj = [
+				// 	{ name: 'Max', age: 23 },
+				// 	{ name: 'John', age: 20 },
+				// 	{ name: 'Caley', age: 18 }
+				// ];
+				 
+				var found = obj.find(e => e.name === '987');
+				console.log(found);
+				 
+			}
 			res.render('appointment', {
 				pricing: allPricing,
 				layout: "layoutSite"
