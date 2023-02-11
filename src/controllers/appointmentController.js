@@ -43,28 +43,19 @@ module.exports = (function () {
 		try {
 			var regNo = req.params.regNo;
 			allPricing = fileHelper.readFile("pricing.json", "pricing");
-			let data = {};
+			let dataData = {};
 			if (allPricing && allPricing.data) {
+				
 				//data = allPricing.data.find(o => o.key === regNo);
 				var obj = allPricing.data;
-				console.log("-------------------")
-				//console.log(temp);
-				//var found = temp.find(e => e.id === '993');
-				//console.log(found);
-				// var obj = [
-				// 	{ name: 'Max', age: 23 },
-				// 	{ name: 'John', age: 20 },
-				// 	{ name: 'Caley', age: 18 }
-				// ];
-				 
-				var found = obj.find(e => e.name === '987');
-				console.log(found);
+				dataData = obj.find(e => e.id == '987');
+				res.render('appointment', {
+					pricing: dataData,
+					layout: "layoutSite"
+				});
 				 
 			}
-			res.render('appointment', {
-				pricing: allPricing,
-				layout: "layoutSite"
-			});
+			
 		} catch (error) {
 			console.error(error);
 			res.sendStatus(500).end(JSON.stringify({
