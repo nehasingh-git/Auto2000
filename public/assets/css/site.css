@@ -258,14 +258,17 @@ body {
 }
 
 .footer .call-box {
-  height: 60px;
-  /* background: aliceblue; */
+  height: 70px;
   top: -60px;
 }
 
 @media (max-width: 575.98px) {
   .footer {
     margin-top: 120px
+  }
+  .footer .call-box {
+    height: 110px;
+    top: -80px;
   }
 
 }
@@ -314,12 +317,12 @@ body {
   border: 0.1rem solid white !important;
   border-radius: 46px !important;
   background: transparent;
+  height: 35px;
 }
 
 .btn-custom:hover {
   color: #FFF;
-  background: rgba(108, 88, 179, 0.75);
-  border: 2px solid rgba(108, 89, 179, 0.75);
+
 }
 
 .icon-box .box {

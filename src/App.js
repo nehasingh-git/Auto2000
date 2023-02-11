@@ -64,13 +64,12 @@ app.use(function (err, req, res, next) {
 	res.status(500).send('sever error!')
 })
 
+app.listen(8080, () => {
+  
+	console.log(`App listening on port 8080`);
+  });
 
-http.createServer(app).listen(3005,httpServerConnected)
-
-// starting server
-httpsServer.listen(443, httpServerConnected);
+// // starting server
+// httpsServer.listen(443, httpServerConnected);
  
-
-function httpServerConnected() {
-	console.log('server connected ');
-}
+ 
