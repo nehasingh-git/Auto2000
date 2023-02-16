@@ -1,376 +1,1292 @@
 {
-    "data": [
-      {
-        "id": 986,
-        "minor_service": 285,
-        "major_service": 345,
-        "spark_plugs_only_with_major_service": 135,
-        "brake_fluid_change": 75,
-        "drive_belt": 75,
-        "clutch_oil": 75,
-        "cambelt": 75,
-        "clutch": 75,
-        "mot": 60,
-        "air_conditioning_service": 1000,
-        "air_conditioning_gas": 1000,
-        "air_conditioning_radiator_replacement": 1000,
-        "brake_pads_and_discs_front_or_rear": 1000,
-        "brake_pads_and_discs_front_and_rear": 1000,
-        "water_pump_replacement": 1000,
-        "virtual_car_inspection": 1000,
-        "in-person_car_inspection": 1000,
-        "collection_and_delivery_service_up_to_100_miles_each_way": 400,
-        "ims_upgrades": 1000,
-        "rms_upgrades": 1000,
-        "engine_rebuilds": 1000,
-        "exhaust_upgrades_dansk": 1000,
-        "exhaust_upgrades_other": 1000,
-        "replacement_roof_fitted_with_glass": 1800
+  "data": [
+    {
+      "id": "hoxster_986",
+      "minor_service": {
+        "name": "Minor Service",
+        "cost": 285,
+        "test": "test",
+        "description": "<p>Full checkover</p><p>Engine oil & filter change</p><p>Pollen filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Fault memory check\r\nRoad test</p><p>Auto 2000 stamp in the book</p>"
       },
-      {
-        "id": 987,
-        "minor_service": 285,
-        "major_service": 500,
-        "spark_plugs_only_with_major_service": 150,
-        "brake_fluid_change": 75,
-        "drive_belt": 75,
-        "clutch_oil": 75,
-        "cambelt": 75,
-        "clutch": 75,
-        "mot": 60,
-        "air_conditioning_service": 1000,
-        "air_conditioning_gas": 1000,
-        "air_conditioning_radiator_replacement": 1000,
-        "brake_pads_and_discs_front_or_rear": 1000,
-        "brake_pads_and_discs_front_and_rear": 1000,
-        "water_pump_replacement": 1000,
-        "virtual_car_inspection": 1000,
-        "in-person_car_inspection": 1000,
-        "collection_and_delivery_service_up_to_100_miles_each_way": 400,
-        "ims_upgrades": 1000,
-        "rms_upgrades": 1000,
-        "engine_rebuilds": 1000,
-        "exhaust_upgrades_dansk": 1000,
-        "exhaust_upgrades_other": 1000,
-        "replacement_roof_fitted_with_glass": 1800
+      "major_service": {
+        "cost": 480,
+        "description": "<p>Full Checkover</p><p>Engine Oil & filter change</p><p>Air filter change</p><p>Pollen filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Fault memory check\r\nRoad test</p><p>Auto 2000 stamp in the book</p>"
       },
-      {
-        "id": "3.2/SC",
-        "minor_service": 285,
-        "major_service": 520,
-        "spark_plugs_only_with_major_service": 150,
-        "brake_fluid_change": 75,
-        "drive_belt": 75,
-        "clutch_oil": 75,
-        "cambelt": 75,
-        "clutch": 75,
-        "mot": 60,
-        "air_conditioning_service": 1000,
-        "air_conditioning_gas": 1000,
-        "air_conditioning_radiator_replacement": 1000,
-        "brake_pads_and_discs_front_or_rear": 1000,
-        "brake_pads_and_discs_front_and_rear": 1000,
-        "water_pump_replacement": 1000,
-        "virtual_car_inspection": 1000,
-        "in-person_car_inspection": 1000,
-        "collection_and_delivery_service_up_to_100_miles_each_way": 400,
-        "ims_upgrades": 1000,
-        "rms_upgrades": 1000,
-        "engine_rebuilds": 1000,
-        "exhaust_upgrades_dansk": 1000,
-        "exhaust_upgrades_other": 1000,
-        "replacement_roof_fitted_with_glass": 1800
+      "add_on_services": [
+        {
+          "id": "air_conditioning_service",
+          "icon": "air_conditioning_service",
+          "name": "AIR CONDITIONING SERVICE",
+          "cost": "1000"
+        },
+        {
+          "id": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replacement",
+          "name": "AIR CONDITIONING RADIATOR REPLACEMENT",
+          "cost": "1000"
+        },
+        {
+          "id": "air_conditioning_gas",
+          "icon": "air_conditioning_gas",
+          "name": "AIR CONDITIONING GAS",
+          "cost": "1000"
+        },
+        {
+          "id": "brake_fluid_change",
+          "icon": "brake_fluid_change",
+          "name": "BRAKE FLUID CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "brake_pad_&_disc_front_or_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT OR REAR",
+          "cost": "1000"
+        },
+        {
+          "id": "brake_pad_&_disc_front_and_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT AND REAR",
+          "cost": "1000"
+        },
+        {
+          "id": "clutch_oil_change",
+          "icon": "clutch_oil_change",
+          "name": "CLUTCH OIL CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "clutch_replacement",
+          "icon": "clutch_replacement",
+          "name": "CLUTCH REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "cam_belt_replacement",
+          "icon": "cam_belt_replacement",
+          "name": "CAM BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "drive_belt_replacement",
+          "icon": "drive_belt_replacement",
+          "name": "DRIVE BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "WATER PUMP REPLACEMENT",
+          "cost": "1000"
+        },
+        {
+          "id": "vehicle_mot",
+          "icon": "vehicle_mot",
+          "name": "VEHICLE MOT",
+          "cost": "60"
+        }
+      ],
+      "other_modification": [
+        {
+          "id": "ims_upgrades",
+          "name": "Ims Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "rms_upgrades",
+          "name": "Rms Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "engine_rebuilds",
+          "name": "Engine Rebuilds",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_dansk",
+          "name": "exhaust Upgrades Dansk",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_other",
+          "name": "Exhaust Upgrades Other",
+          "cost": 1000
+        },
+        {
+          "id": "replacement_roof_fitted_with_glass",
+          "name": "Replacement Roof Fitted With Glass",
+          "cost": 1800
+        }
+      ]
+    },
+    {
+      "id": "boxster_987",
+      "minor_service": {
+        "name": "Minor Service",
+        "cost": 285,
+        "description": "<p>Full checkover</p><p>Engine oil & filter change</p><p>Pollen filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Fault memory check\r\nRoad test</p><p>Auto 2000 stamp in the book</p>"
       },
-      {
-        "id": 964,
-        "minor_service": 285,
-        "major_service": 765,
-        "spark_plugs_only_with_major_service": 150,
-        "brake_fluid_change": 75,
-        "drive_belt": 75,
-        "clutch_oil": 75,
-        "cambelt": 75,
-        "clutch": 75,
-        "mot": 60,
-        "air_conditioning_service": 1000,
-        "air_conditioning_gas": 1000,
-        "air_conditioning_radiator_replacement": 1000,
-        "brake_pads_and_discs_front_or_rear": 1000,
-        "brake_pads_and_discs_front_and_rear": 1000,
-        "water_pump_replacement": 1000,
-        "virtual_car_inspection": 1000,
-        "in-person_car_inspection": 1000,
-        "collection_and_delivery_service_up_to_100_miles_each_way": 400,
-        "ims_upgrades": 1000,
-        "rms_upgrades": 1000,
-        "engine_rebuilds": 1000,
-        "exhaust_upgrades_dansk": 1000,
-        "exhaust_upgrades_other": 1000,
-        "replacement_roof_fitted_with_glass": 1800
+      "major_service": {
+        "cost": 650,
+        "description": "<p>Full Checkover</p><p>Engine Oil & filter change</p><p>Air filter change</p><p>Pollen filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Fault memory check\r\nRoad test</p><p>Auto 2000 stamp in the book</p>"
       },
-      {
-        "id": 993,
-        "minor_service": 350,
-        "major_service": 830,
-        "spark_plugs_only_with_major_service": 150,
-        "brake_fluid_change": 75,
-        "drive_belt": 75,
-        "clutch_oil": 75,
-        "cambelt": 75,
-        "clutch": 75,
-        "mot": 60,
-        "air_conditioning_service": 1000,
-        "air_conditioning_gas": 1000,
-        "air_conditioning_radiator_replacement": 1000,
-        "brake_pads_and_discs_front_or_rear": 1000,
-        "brake_pads_and_discs_front_and_rear": 1000,
-        "water_pump_replacement": 1000,
-        "virtual_car_inspection": 1000,
-        "in-person_car_inspection": 1000,
-        "collection_and_delivery_service_up_to_100_miles_each_way": 400,
-        "ims_upgrades": 1000,
-        "rms_upgrades": 1000,
-        "engine_rebuilds": 1000,
-        "exhaust_upgrades_dansk": 1000,
-        "exhaust_upgrades_other": 1000,
-        "replacement_roof_fitted_with_glass": 1800
+      "add_on_services": [
+        {
+          "id": "air_conditioning_service",
+          "icon": "air_conditioning_service",
+          "name": "AIR CONDITIONING SERVICE",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replaceme",
+          "name": "AIR CONDITIONING RADIATOR REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_gas",
+          "icon": "air_conditioning_gas",
+          "name": "AIR CONDITIONING GAS",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_fluid_change",
+          "icon": "brake_fluid_change",
+          "name": "BRAKE FLUID CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "brake_pad_&_disc_front_or_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT OR REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_pad_&_disc_front_and_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT AND REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "clutch_oil_change",
+          "icon": "clutch_oil_change",
+          "name": "CLUTCH OIL CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "clutch_replacement",
+          "icon": "clutch_replacement",
+          "name": "CLUTCH REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "cam_belt_replacement",
+          "icon": "cam_belt_replacement",
+          "name": "CAM BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "drive_belt_replacement",
+          "icon": "drive_belt_replacement",
+          "name": "DRIVE BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "WATER PUMP REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "vehicle_mot",
+          "icon": "vehicle_mot",
+          "name": "VEHICLE MOT",
+          "cost": "60"
+        }
+      ],
+      "other_modification": [
+        {
+          "id": "ims_upgrades",
+          "name": "Ims Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "rms_upgrades",
+          "name": "Rms Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "engine_rebuilds",
+          "name": "Engine Rebuilds",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_dansk",
+          "name": "exhaust Upgrades Dansk",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_other",
+          "name": "Exhaust Upgrades Other",
+          "cost": 1000
+        },
+        {
+          "id": "replacement_roof_fitted_with_glass",
+          "name": "Replacement Roof Fitted With Glass",
+          "cost": 1800
+        }
+      ]
+    },
+    {
+      "id": "911 3.2/SC",
+      "minor_service": {
+        "name": "Minor Service",
+        "description": "<p>Full Checkover</p><p>Engine Oil & Filter Change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Road test</p><p>Auto 2000 stamp in the book</p>",
+        "cost": 285
       },
-      {
-        "id": 996,
-        "minor_service": 285,
-        "major_service": 495,
-        "spark_plugs_only_with_major_service": 150,
-        "brake_fluid_change": 75,
-        "drive_belt": 125,
-        "clutch_oil": 125,
-        "cambelt": 125,
-        "clutch": 125,
-        "mot": 60,
-        "air_conditioning_service": 1000,
-        "air_conditioning_gas": 1000,
-        "air_conditioning_radiator_replacement": 1000,
-        "brake_pads_and_discs_front_or_rear": 1000,
-        "brake_pads_and_discs_front_and_rear": 1000,
-        "water_pump_replacement": 1000,
-        "virtual_car_inspection": 1000,
-        "in-person_car_inspection": 1000,
-        "collection_and_delivery_service_up_to_100_miles_each_way": 400,
-        "ims_upgrades": 1000,
-        "rms_upgrades": 1000,
-        "engine_rebuilds": 1000,
-        "exhaust_upgrades_dansk": 1000,
-        "exhaust_upgrades_other": 1000,
-        "replacement_roof_fitted_with_glass": 1800
+      "major_service": {
+        "name": "Major Service",
+        "cost": 670,
+        "description": "<p>Full Checkover</p><p>Engine Oil & Filter Change</p><p>Check & set tappets\r\nSpark plug change</p><p>Air filter change</p><p>Fuel filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Road test</p><p>Auto 2000 stamp in the book</p>"
       },
-      {
-        "id": 997,
-        "minor_service": 285,
-        "major_service": 515,
-        "spark_plugs_only_with_major_service": 150,
-        "brake_fluid_change": 75,
-        "drive_belt": 125,
-        "clutch_oil": 225,
-        "cambelt": 225,
-        "clutch": 225,
-        "mot": 60,
-        "air_conditioning_service": 1000,
-        "air_conditioning_gas": 1000,
-        "air_conditioning_radiator_replacement": 1000,
-        "brake_pads_and_discs_front_or_rear": 1000,
-        "brake_pads_and_discs_front_and_rear": 1000,
-        "water_pump_replacement": 1000,
-        "virtual_car_inspection": 1000,
-        "in-person_car_inspection": 1000,
-        "collection_and_delivery_service_up_to_100_miles_each_way": 400,
-        "ims_upgrades": 1000,
-        "rms_upgrades": 1000,
-        "engine_rebuilds": 1000,
-        "exhaust_upgrades_dansk": 1000,
-        "exhaust_upgrades_other": 1000,
-        "replacement_roof_fitted_with_glass": 1800
+      "add_on_services": [
+        {
+          "id": "air_conditioning_service",
+          "icon": "air_conditioning_service",
+          "name": "AIR CONDITIONING SERVICE",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replaceme",
+          "name": "AIR CONDITIONING RADIATOR REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_gas",
+          "icon": "air_conditioning_gas",
+          "name": "AIR CONDITIONING GAS",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_fluid_change",
+          "icon": "brake_fluid_change",
+          "name": "BRAKE FLUID CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "brake_pad_&_disc_front_or_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT OR REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_pad_&_disc_front_and_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT AND REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "clutch_oil_change",
+          "icon": "clutch_oil_change",
+          "name": "CLUTCH OIL CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "clutch_replacement",
+          "icon": "clutch_replacement",
+          "name": "CLUTCH REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "cam_belt_replacement",
+          "icon": "cam_belt_replacement",
+          "name": "CAM BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "drive_belt_replacement",
+          "icon": "drive_belt_replacement",
+          "name": "DRIVE BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "WATER PUMP REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "vehicle_mot",
+          "icon": "vehicle_mot",
+          "name": "VEHICLE MOT",
+          "cost": "60"
+        }
+      ],
+      "other_modification": [
+        {
+          "id": "ims_upgrades",
+          "name": "Ims Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "rms_upgrades",
+          "name": "Rms Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "engine_rebuilds",
+          "name": "Engine Rebuilds",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_dansk",
+          "name": "exhaust Upgrades Dansk",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_other",
+          "name": "Exhaust Upgrades Other",
+          "cost": 1000
+        },
+        {
+          "id": "replacement_roof_fitted_with_glass",
+          "name": "Replacement Roof Fitted With Glass",
+          "cost": 1800
+        }
+      ]
+    },
+    {
+      "id": 964,
+      "minor_service": {
+        "name": "Minor Service",
+        "cost": 285,
+        "description": "<p>Full Checkover</p><p>Engine Oil & Filter Change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Road test</p><p>Auto 2000 stamp in the book</p>"
       },
-      {
-        "id": 991,
-        "minor_service": 285,
-        "major_service": "£350",
-        "spark_plugs_only_with_major_service": 150,
-        "brake_fluid_change": 75,
-        "drive_belt": 125,
-        "clutch_oil": 225,
-        "cambelt": 225,
-        "clutch": 225,
-        "mot": 60,
-        "air_conditioning_service": 1000,
-        "air_conditioning_gas": 1000,
-        "air_conditioning_radiator_replacement": 1000,
-        "brake_pads_and_discs_front_or_rear": 1000,
-        "brake_pads_and_discs_front_and_rear": 1000,
-        "water_pump_replacement": 1000,
-        "virtual_car_inspection": 1000,
-        "in-person_car_inspection": 1000,
-        "collection_and_delivery_service_up_to_100_miles_each_way": 400,
-        "ims_upgrades": 1000,
-        "rms_upgrades": 1000,
-        "engine_rebuilds": 1000,
-        "exhaust_upgrades_dansk": 1000,
-        "exhaust_upgrades_other": 1000,
-        "replacement_roof_fitted_with_glass": 1800
+      "major_service": {
+        "name": "Major Service",
+        "cost": 915,
+        "description": "<p>Full Checkover</p><p>Engine Oil & Filter Change</p><p>Check & set tappets\r\nSpark plug change</p><p>Air filter change</p><p>Fuel filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Road test</p><p>Auto 2000 stamp in the book</p>"
       },
-      {
-        "id": "Cayenne",
-        "minor_service": 285,
-        "major_service": 420,
-        "spark_plugs_only_with_major_service": 150,
-        "brake_fluid_change": 75,
-        "drive_belt": 75,
-        "clutch_oil": 75,
-        "cambelt": 75,
-        "clutch": 75,
-        "mot": 60,
-        "air_conditioning_service": 1000,
-        "air_conditioning_gas": 1000,
-        "air_conditioning_radiator_replacement": 1000,
-        "brake_pads_and_discs_front_or_rear": 1000,
-        "brake_pads_and_discs_front_and_rear": 1000,
-        "water_pump_replacement": 1000,
-        "virtual_car_inspection": 1000,
-        "in-person_car_inspection": 1000,
-        "collection_and_delivery_service_up_to_100_miles_each_way": 400,
-        "ims_upgrades": 1000,
-        "rms_upgrades": 1000,
-        "engine_rebuilds": 1000,
-        "exhaust_upgrades_dansk": 1000,
-        "exhaust_upgrades_other": 1000,
-        "replacement_roof_fitted_with_glass": 1800
+      "add_on_services": [
+        {
+          "id": "air_conditioning_service",
+          "icon": "air_conditioning_service",
+          "name": "AIR CONDITIONING SERVICE",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replaceme",
+          "name": "AIR CONDITIONING RADIATOR REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_gas",
+          "icon": "air_conditioning_gas",
+          "name": "AIR CONDITIONING GAS",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_fluid_change",
+          "icon": "brake_fluid_change",
+          "name": "BRAKE FLUID CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "brake_pad_&_disc_front_or_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT OR REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_pad_&_disc_front_and_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT AND REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "clutch_oil_change",
+          "icon": "clutch_oil_change",
+          "name": "CLUTCH OIL CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "clutch_replacement",
+          "icon": "clutch_replacement",
+          "name": "CLUTCH REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "cam_belt_replacement",
+          "icon": "cam_belt_replacement",
+          "name": "CAM BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "drive_belt_replacement",
+          "icon": "drive_belt_replacement",
+          "name": "DRIVE BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "WATER PUMP REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "vehicle_mot",
+          "icon": "vehicle_mot",
+          "name": "VEHICLE MOT",
+          "cost": "60"
+        }
+      ],
+      "other_modification": [
+        {
+          "id": "ims_upgrades",
+          "name": "Ims Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "rms_upgrades",
+          "name": "Rms Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "engine_rebuilds",
+          "name": "Engine Rebuilds",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_dansk",
+          "name": "exhaust Upgrades Dansk",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_other",
+          "name": "Exhaust Upgrades Other",
+          "cost": 1000
+        },
+        {
+          "id": "replacement_roof_fitted_with_glass",
+          "name": "Replacement Roof Fitted With Glass",
+          "cost": 1800
+        }
+      ]
+    },
+    {
+      "id": 993,
+      "minor_service": {
+        "name": "Minor Service",
+        "cost": 350,
+        "description": "<p>Full Checkover</p><p>Engine Oil & Filter Change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Road test</p><p>Auto 2000 stamp in the book</p>"
       },
-      {
-        "id": "Panamera",
-        "minor_service": 280,
-        "major_service": 420,
-        "spark_plugs_only_with_major_service": 150,
-        "brake_fluid_change": 75,
-        "drive_belt": 75,
-        "clutch_oil": 75,
-        "cambelt": 75,
-        "clutch": 75,
-        "mot": 60,
-        "air_conditioning_service": 1000,
-        "air_conditioning_gas": 1000,
-        "air_conditioning_radiator_replacement": 1000,
-        "brake_pads_and_discs_front_or_rear": 1000,
-        "brake_pads_and_discs_front_and_rear": 1000,
-        "water_pump_replacement": 1000,
-        "virtual_car_inspection": 1000,
-        "in-person_car_inspection": 1000,
-        "collection_and_delivery_service_up_to_100_miles_each_way": 400,
-        "ims_upgrades": 1000,
-        "rms_upgrades": 1000,
-        "engine_rebuilds": 1000,
-        "exhaust_upgrades_dansk": 1000,
-        "exhaust_upgrades_other": 1000,
-        "replacement_roof_fitted_with_glass": 1800
+      "major_service": {
+        "name": "Major Service",
+        "cost": 980,
+        "description": "<p>Full Checkover</p><p>Engine Oil & Filter Change</p><p>Spark plug change</p><p>Air filter change</p><p>Fuel filter change</p><p>Pollen filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Road test</p><p>Auto 2000 stamp in the book</p>"
       },
-      {
-        "id": "Macan",
-        "minor_service": 280,
-        "major_service": 420,
-        "spark_plugs_only_with_major_service": 150,
-        "brake_fluid_change": 75,
-        "drive_belt": 75,
-        "clutch_oil": 75,
-        "cambelt": 75,
-        "clutch": 75,
-        "mot": 60,
-        "air_conditioning_service": 1000,
-        "air_conditioning_gas": 1000,
-        "air_conditioning_radiator_replacement": 1000,
-        "brake_pads_and_discs_front_or_rear": 1000,
-        "brake_pads_and_discs_front_and_rear": 1000,
-        "water_pump_replacement": 1000,
-        "virtual_car_inspection": 1000,
-        "in-person_car_inspection": 1000,
-        "collection_and_delivery_service_up_to_100_miles_each_way": 400,
-        "ims_upgrades": 1000,
-        "rms_upgrades": 1000,
-        "engine_rebuilds": 1000,
-        "exhaust_upgrades_dansk": 1000,
-        "exhaust_upgrades_other": 1000,
-        "replacement_roof_fitted_with_glass": 1800
+      "add_on_services": [
+        {
+          "id": "air_conditioning_service",
+          "icon": "air_conditioning_service",
+          "name": "AIR CONDITIONING SERVICE",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replaceme",
+          "name": "AIR CONDITIONING RADIATOR REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_gas",
+          "icon": "air_conditioning_gas",
+          "name": "AIR CONDITIONING GAS",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_fluid_change",
+          "icon": "brake_fluid_change",
+          "name": "BRAKE FLUID CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "brake_pad_&_disc_front_or_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT OR REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_pad_&_disc_front_and_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT AND REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "clutch_oil_change",
+          "icon": "clutch_oil_change",
+          "name": "CLUTCH OIL CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "clutch_replacement",
+          "icon": "clutch_replacement",
+          "name": "CLUTCH REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "cam_belt_replacement",
+          "icon": "cam_belt_replacement",
+          "name": "CAM BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "drive_belt_replacement",
+          "icon": "drive_belt_replacement",
+          "name": "DRIVE BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "WATER PUMP REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "vehicle_mot",
+          "icon": "vehicle_mot",
+          "name": "VEHICLE MOT",
+          "cost": "60"
+        }
+      ],
+      "other_modification": [
+        {
+          "id": "ims_upgrades",
+          "name": "Ims Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "rms_upgrades",
+          "name": "Rms Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "engine_rebuilds",
+          "name": "Engine Rebuilds",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_dansk",
+          "name": "exhaust Upgrades Dansk",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_other",
+          "name": "Exhaust Upgrades Other",
+          "cost": 1000
+        },
+        {
+          "id": "replacement_roof_fitted_with_glass",
+          "name": "Replacement Roof Fitted With Glass",
+          "cost": 1800
+        }
+      ]
+    },
+    {
+      "id": "911_996",
+      "minor_service": {
+        "name": "Minor Service",
+        "cost": 285,
+        "description": "<p>Full checkover</p><p>Engine oil & filter change</p><p>Pollen filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Road test</p><p>Auto 2000 stamp in the book</p>"
       },
-      {
-        "id": 924,
-        "minor_service": 195,
-        "major_service": 350,
-        "spark_plugs_only_with_major_service": 150,
-        "brake_fluid_change": 75,
-        "drive_belt": 75,
-        "clutch_oil": 75,
-        "cambelt": 325,
-        "clutch": 325,
-        "mot": 60,
-        "air_conditioning_service": 1000,
-        "air_conditioning_gas": 1000,
-        "air_conditioning_radiator_replacement": 1000,
-        "brake_pads_and_discs_front_or_rear": 1000,
-        "brake_pads_and_discs_front_and_rear": 1000,
-        "water_pump_replacement": 1000,
-        "virtual_car_inspection": 1000,
-        "in-person_car_inspection": 1000,
-        "collection_and_delivery_service_up_to_100_miles_each_way": 400,
-        "ims_upgrades": 1000,
-        "rms_upgrades": 1000,
-        "engine_rebuilds": 1000,
-        "exhaust_upgrades_dansk": 1000,
-        "exhaust_upgrades_other": 1000,
-        "replacement_roof_fitted_with_glass": 1800
+      "major_service": {
+        "name": "Major Service",
+        "cost": 645,
+        "description": "<p>Full Checkover</p><p>Engine Oil & filter change</p><p>Air filter change</p><p>Pollen filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Road test</p><p>Auto 2000 stamp in the book</p>"
       },
-      {
-        "id": 928,
-        "minor_service": 285,
-        "major_service": 495,
-        "spark_plugs_only_with_major_service": 150,
-        "brake_fluid_change": 75,
-        "drive_belt": 75,
-        "clutch_oil": 75,
-        "cambelt": 325,
-        "clutch": 325,
-        "mot": 60,
-        "air_conditioning_service": 1000,
-        "air_conditioning_gas": 1000,
-        "air_conditioning_radiator_replacement": 1000,
-        "brake_pads_and_discs_front_or_rear": 1000,
-        "brake_pads_and_discs_front_and_rear": 1000,
-        "water_pump_replacement": 1000,
-        "virtual_car_inspection": 1000,
-        "in-person_car_inspection": 1000,
-        "collection_and_delivery_service_up_to_100_miles_each_way": 400,
-        "ims_upgrades": 1000,
-        "rms_upgrades": 1000,
-        "engine_rebuilds": 1000,
-        "exhaust_upgrades_dansk": 1000,
-        "exhaust_upgrades_other": 1000,
-        "replacement_roof_fitted_with_glass": 1800
+      "add_on_services": [
+        {
+          "id": "air_conditioning_service",
+          "icon": "air_conditioning_service",
+          "name": "AIR CONDITIONING SERVICE",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replaceme",
+          "name": "AIR CONDITIONING RADIATOR REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_gas",
+          "icon": "air_conditioning_gas",
+          "name": "AIR CONDITIONING GAS",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_fluid_change",
+          "icon": "brake_fluid_change",
+          "name": "BRAKE FLUID CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "brake_pad_&_disc_front_or_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT OR REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_pad_&_disc_front_and_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT AND REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "clutch_oil_change",
+          "icon": "clutch_oil_change",
+          "name": "CLUTCH OIL CHANGE",
+          "cost": "125"
+        },
+        {
+          "id": "clutch_replacement",
+          "icon": "clutch_replacement",
+          "name": "CLUTCH REPLACEMENT",
+          "cost": "125"
+        },
+        {
+          "id": "cam_belt_replacement",
+          "icon": "cam_belt_replacement",
+          "name": "CAM BELT REPLACEMENT",
+          "cost": "125"
+        },
+        {
+          "id": "drive_belt_replacement",
+          "icon": "drive_belt_replacement",
+          "name": "DRIVE BELT REPLACEMENT",
+          "cost": "125"
+        },
+        {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "WATER PUMP REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "vehicle_mot",
+          "icon": "vehicle_mot",
+          "name": "VEHICLE MOT",
+          "cost": "60"
+        }
+      ],
+      "other_modification": [
+        {
+          "id": "ims_upgrades",
+          "name": "Ims Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "rms_upgrades",
+          "name": "Rms Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "engine_rebuilds",
+          "name": "Engine Rebuilds",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_dansk",
+          "name": "exhaust Upgrades Dansk",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_other",
+          "name": "Exhaust Upgrades Other",
+          "cost": 1000
+        },
+        {
+          "id": "replacement_roof_fitted_with_glass",
+          "name": "Replacement Roof Fitted With Glass",
+          "cost": 1800
+        }
+      ]
+    },
+    {
+      "id": "911_997",
+      "minor_service": {
+        "name": "Minor Service",
+        "cost": 285,
+        "description": "<p>Full checkover</p><p>Engine oil & filter change</p><p>Pollen filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Fault memory check\r\nRoad test</p><p>Auto 2000 stamp in the book</p>"
       },
-      {
-        "id": 924,
-        "minor_service": 285,
-        "major_service": 495,
-        "spark_plugs_only_with_major_service": 150,
-        "brake_fluid_change": 75,
-        "drive_belt": 75,
-        "clutch_oil": 75,
-        "cambelt": 325,
-        "clutch": 325,
-        "mot": 60,
-        "air_conditioning_service": 1000,
-        "air_conditioning_gas": 1000,
-        "air_conditioning_radiator_replacement": 1000,
-        "brake_pads_and_discs_front_or_rear": 1000,
-        "brake_pads_and_discs_front_and_rear": 1000,
-        "water_pump_replacement": 1000,
-        "virtual_car_inspection": 1000,
-        "in-person_car_inspection": 1000,
-        "collection_and_delivery_service_up_to_100_miles_each_way": 400,
+      "major_service": {
+        "name": "Major Service",
+        "cost": 665,
+        "description": "<p>Full Checkover</p><p>Engine Oil & filter change</p><p>Air filter change</p><p>Pollen filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Fault memory check\r\nRoad test</p><p>Auto 2000 stamp in the book</p>"
+      },
+      "add_on_services": [
+        {
+          "id": "air_conditioning_service",
+          "icon": "air_conditioning_service",
+          "name": "AIR CONDITIONING SERVICE",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replaceme",
+          "name": "AIR CONDITIONING RADIATOR REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_gas",
+          "icon": "air_conditioning_gas",
+          "name": "AIR CONDITIONING GAS",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_fluid_change",
+          "icon": "brake_fluid_change",
+          "name": "BRAKE FLUID CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "brake_pad_&_disc_front_or_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT OR REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_pad_&_disc_front_and_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT AND REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "clutch_oil_change",
+          "icon": "clutch_oil_change",
+          "name": "CLUTCH OIL CHANGE",
+          "cost": "225"
+        },
+        {
+          "id": "clutch_replacement",
+          "icon": "clutch_replacement",
+          "name": "CLUTCH REPLACEMENT",
+          "cost": "225"
+        },
+        {
+          "id": "cam_belt_replacement",
+          "icon": "cam_belt_replacement",
+          "name": "CAM BELT REPLACEMENT",
+          "cost": "225"
+        },
+        {
+          "id": "drive_belt_replacement",
+          "icon": "drive_belt_replacement",
+          "name": "DRIVE BELT REPLACEMENT",
+          "cost": "125"
+        },
+        {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "WATER PUMP REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "vehicle_mot",
+          "icon": "vehicle_mot",
+          "name": "VEHICLE MOT",
+          "cost": "60"
+        }
+      ],
+      "other_modification": [
+        {
+          "id": "ims_upgrades",
+          "name": "Ims Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "rms_upgrades",
+          "name": "Rms Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "engine_rebuilds",
+          "name": "Engine Rebuilds",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_dansk",
+          "name": "exhaust Upgrades Dansk",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_other",
+          "name": "Exhaust Upgrades Other",
+          "cost": 1000
+        },
+        {
+          "id": "replacement_roof_fitted_with_glass",
+          "name": "Replacement Roof Fitted With Glass",
+          "cost": 1800
+        }
+      ]
+    },
+    {
+      "id": "911_991",
+      "minor_service": {
+        "name": "Minor Service",
+        "cost": 285,
+        "description": "<p>Full checkover</p><p>Engine oil & filter change</p><p>Pollen filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Fault memory check\r\nRoad test</p><p>Auto 2000 stamp in the book</p>"
+      },
+      "major_service": {
+        "name": "Major Service",
+        "cost": "500 - 670",
+        "description": "<p>Full Checkover</p><p>Engine Oil & filter change</p><p>Pollen filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Fault memory check\r\nRoad test</p><p>Auto 2000 stamp in the book</p>"
+      },
+      "add_on_services": [
+        {
+          "id": "air_conditioning_service",
+          "icon": "air_conditioning_service",
+          "name": "AIR CONDITIONING SERVICE",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replaceme",
+          "name": "AIR CONDITIONING RADIATOR REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_gas",
+          "icon": "air_conditioning_gas",
+          "name": "AIR CONDITIONING GAS",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_fluid_change",
+          "icon": "brake_fluid_change",
+          "name": "BRAKE FLUID CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "brake_pad_&_disc_front_or_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT OR REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_pad_&_disc_front_and_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT AND REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "clutch_oil_change",
+          "icon": "clutch_oil_change",
+          "name": "CLUTCH OIL CHANGE",
+          "cost": "225"
+        },
+        {
+          "id": "clutch_replacement",
+          "icon": "clutch_replacement",
+          "name": "CLUTCH REPLACEMENT",
+          "cost": "225"
+        },
+        {
+          "id": "cam_belt_replacement",
+          "icon": "cam_belt_replacement",
+          "name": "CAM BELT REPLACEMENT",
+          "cost": "225"
+        },
+        {
+          "id": "drive_belt_replacement",
+          "icon": "drive_belt_replacement",
+          "name": "DRIVE BELT REPLACEMENT",
+          "cost": "125"
+        },
+        {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "WATER PUMP REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "vehicle_mot",
+          "icon": "vehicle_mot",
+          "name": "VEHICLE MOT",
+          "cost": "60"
+        }
+      ],
+      "other_modification": [
+        {
+          "id": "ims_upgrades",
+          "name": "Ims Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "rms_upgrades",
+          "name": "Rms Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "engine_rebuilds",
+          "name": "Engine Rebuilds",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_dansk",
+          "name": "exhaust Upgrades Dansk",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_other",
+          "name": "Exhaust Upgrades Other",
+          "cost": 1000
+        },
+        {
+          "id": "replacement_roof_fitted_with_glass",
+          "name": "Replacement Roof Fitted With Glass",
+          "cost": 1800
+        }
+      ]
+    },
+    {
+      "id": "Cayenne",
+      "minor_service": {
+        "name": "Minor Service",
+        "cost": 285,
+        "description": "<p>Full checkover</p><p>Engine oil & filter change</p><p>Pollen filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Fault memory check\r\nRoad test</p><p>Auto 2000 stamp in the book</p>"
+      },
+      "major_service": {
+        "name": "Major Service",
+        "cost": 570,
+        "description": "<p>Full Checkover</p><p>Engine Oil & filter change</p><p>Air filter change</p><p>Pollen filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Fault memory check\r\nRoad test</p><p>Auto 2000 stamp in the book</p>"
+      },
+      "add_on_services": [
+        {
+          "id": "air_conditioning_service",
+          "icon": "air_conditioning_service",
+          "name": "AIR CONDITIONING SERVICE",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replaceme",
+          "icon": "air_conditioning_radiator_replacement",
+          "name": "AIR CONDITIONING RADIATOR REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_gas",
+          "icon": "air_conditioning_gas",
+          "name": "AIR CONDITIONING GAS",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_fluid_change",
+          "icon": "brake_fluid_change",
+          "name": "BRAKE FLUID CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "brake_pad_&_disc_front_or_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT OR REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_pad_&_disc_front_and_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT AND REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "clutch_oil_change",
+          "icon": "clutch_oil_change",
+          "name": "CLUTCH OIL CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "clutch_replacement",
+          "icon": "clutch_replacement",
+          "name": "CLUTCH REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "cam_belt_replacement",
+          "icon": "cam_belt_replacement",
+          "name": "CAM BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "drive_belt_replacement",
+          "icon": "drive_belt_replacement",
+          "name": "DRIVE BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "WATER PUMP REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "vehicle_mot",
+          "icon": "vehicle_mot",
+          "name": "VEHICLE MOT",
+          "cost": "60"
+        }
+      ],
+      "other_modification": [
+        {
+          "id": "ims_upgrades",
+          "name": "Ims Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "rms_upgrades",
+          "name": "Rms Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "engine_rebuilds",
+          "name": "Engine Rebuilds",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_dansk",
+          "name": "exhaust Upgrades Dansk",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_other",
+          "name": "Exhaust Upgrades Other",
+          "cost": 1000
+        },
+        {
+          "id": "replacement_roof_fitted_with_glass",
+          "name": "Replacement Roof Fitted With Glass",
+          "cost": 1800
+        }
+      ]
+    },
+    {
+      "id": "Panamera",
+      "minor_service": {
+        "name": "Minor Service",
+        "cost": 280,
+        "description": "<p>Full checkover</p><p>Engine oil & filter change</p><p>Pollen filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Fault memory check\r\nRoad test</p><p>Auto 2000 stamp in the book</p>"
+      },
+      "major_service": {
+        "name": "Major Service",
+        "cost": 570,
+        "description": "<p>Full Checkover</p><p>Engine Oil & filter change</p><p>Air filter change</p><p>Pollen filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Fault memory check\r\nRoad test</p><p>Auto 2000 stamp in the book</p>"
+      },
+      "add_on_services": [
+        {
+          "id": "air_conditioning_service",
+          "icon": "air_conditioning_service",
+          "name": "AIR CONDITIONING SERVICE",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replaceme",
+          "name": "AIR CONDITIONING RADIATOR REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_gas",
+          "icon": "air_conditioning_gas",
+          "name": "AIR CONDITIONING GAS",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_fluid_change",
+          "icon": "brake_fluid_change",
+          "name": "BRAKE FLUID CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "brake_pad_&_disc_front_or_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT OR REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_pad_&_disc_front_and_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT AND REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "clutch_oil_change",
+          "icon": "clutch_oil_change",
+          "name": "CLUTCH OIL CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "clutch_replacement",
+          "icon": "clutch_replacement",
+          "name": "CLUTCH REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "cam_belt_replacement",
+          "icon": "cam_belt_replacement",
+          "name": "CAM BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "drive_belt_replacement",
+          "icon": "drive_belt_replacement",
+          "name": "DRIVE BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "WATER PUMP REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "vehicle_mot",
+          "icon": "vehicle_mot",
+          "name": "VEHICLE MOT",
+          "cost": "60"
+        }
+      ],
+      "other_modification": [
+        {
+          "id": "ims_upgrades",
+          "name": "Ims Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "rms_upgrades",
+          "name": "Rms Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "engine_rebuilds",
+          "name": "Engine Rebuilds",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_dansk",
+          "name": "exhaust Upgrades Dansk",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_other",
+          "name": "Exhaust Upgrades Other",
+          "cost": 1000
+        },
+        {
+          "id": "replacement_roof_fitted_with_glass",
+          "name": "Replacement Roof Fitted With Glass",
+          "cost": 1800
+        }
+      ]
+    },
+    {
+      "id": "Macan",
+      "minor_service": {
+        "name": "Minor Service",
+        "cost": 280,
+        "description": "<p>Full checkover</p><p>Engine oil & filter change</p><p>Pollen filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Fault memory check\r\nRoad test</p><p>Auto 2000 stamp in the book</p>"
+      },
+      "major_service": {
+        "name": "Major Service",
+        "cost": 570,
+        "description": "<p>Full Checkover</p><p>Engine Oil & filter change</p><p>Air filter change</p><p>Pollen filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Fault memory check\r\nRoad test</p><p>Auto 2000 stamp in the book</p>"
+      },
+      "add_on_services": [
+        {
+          "id": "air_conditioning_service",
+          "icon": "air_conditioning_service",
+          "name": "AIR CONDITIONING SERVICE",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replaceme",
+          "name": "AIR CONDITIONING RADIATOR REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_gas",
+          "icon": "air_conditioning_gas",
+          "name": "AIR CONDITIONING GAS",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_fluid_change",
+          "icon": "brake_fluid_change",
+          "name": "BRAKE FLUID CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "brake_pad_&_disc_front_or_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT OR REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_pad_&_disc_front_and_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT AND REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "clutch_oil_change",
+          "icon": "clutch_oil_change",
+          "name": "CLUTCH OIL CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "clutch_replacement",
+          "icon": "clutch_replacement",
+          "name": "CLUTCH REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "cam_belt_replacement",
+          "icon": "cam_belt_replacement",
+          "name": "CAM BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "drive_belt_replacement",
+          "icon": "drive_belt_replacement",
+          "name": "DRIVE BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "WATER PUMP REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "vehicle_mot",
+          "icon": "vehicle_mot",
+          "name": "VEHICLE MOT",
+          "cost": "60"
+        }
+      ],
+      "other_modification": {
         "ims_upgrades": 1000,
         "rms_upgrades": 1000,
         "engine_rebuilds": 1000,
@@ -378,5 +1294,365 @@
         "exhaust_upgrades_other": 1000,
         "replacement_roof_fitted_with_glass": 1800
       }
-    ]
-  }
+    },
+    {
+      "id": 924,
+      "minor_service": {
+        "name": "Minor Service",
+        "cost": 195,
+        "description": "<p>Full Checkover</p><p>Engine Oil & Filter Change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Road test</p><p>Auto 2000 stamp in the book</p>"
+      },
+      "major_service": {
+        "cost": 500,
+        "name": "Major Service",
+        "description": "<p>Full Checkover</p><p>Engine Oil & Filter Change</p><p>Spark plug change</p><p>Air filter change</p><p>Fuel filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Road test</p><p>Auto 2000 stamp in the book</p>"
+      },
+      "add_on_services": [
+        {
+          "id": "air_conditioning_service",
+          "icon": "air_conditioning_service",
+          "name": "AIR CONDITIONING SERVICE",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replaceme",
+          "name": "AIR CONDITIONING RADIATOR REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_gas",
+          "icon": "air_conditioning_gas",
+          "name": "AIR CONDITIONING GAS",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_fluid_change",
+          "icon": "brake_fluid_change",
+          "name": "BRAKE FLUID CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "brake_pad_&_disc_front_or_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT OR REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_pad_&_disc_front_and_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT AND REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "clutch_oil_change",
+          "icon": "clutch_oil_change",
+          "name": "CLUTCH OIL CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "clutch_replacement",
+          "icon": "clutch_replacement",
+          "name": "CLUTCH REPLACEMENT",
+          "cost": "325"
+        },
+        {
+          "id": "cam_belt_replacement",
+          "icon": "cam_belt_replacement",
+          "name": "CAM BELT REPLACEMENT",
+          "cost": "325"
+        },
+        {
+          "id": "drive_belt_replacement",
+          "icon": "drive_belt_replacement",
+          "name": "DRIVE BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "WATER PUMP REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "vehicle_mot",
+          "icon": "vehicle_mot",
+          "name": "VEHICLE MOT",
+          "cost": "60"
+        }
+      ],
+      "other_modification": [
+        {
+          "id": "ims_upgrades",
+          "name": "Ims Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "rms_upgrades",
+          "name": "Rms Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "engine_rebuilds",
+          "name": "Engine Rebuilds",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_dansk",
+          "name": "exhaust Upgrades Dansk",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_other",
+          "name": "Exhaust Upgrades Other",
+          "cost": 1000
+        },
+        {
+          "id": "replacement_roof_fitted_with_glass",
+          "name": "Replacement Roof Fitted With Glass",
+          "cost": 1800
+        }
+      ]
+    },
+    {
+      "id": 928,
+      "minor_service": {
+        "name": "Minor Service",
+        "cost": 285,
+        "description": "<p>Full Checkover</p><p>Engine Oil & Filter Change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Road test</p><p>Auto 2000 stamp in the book</p>"
+      },
+      "major_service": {
+        "name": "Major Service",
+        "cost": 645,
+        "description": "<p>Full Checkover</p><p>Engine Oil & Filter Change</p><p>Spark plug change</p><p>Air filter change</p><p>Fuel filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Road test</p><p>Auto 2000 stamp in the book</p>"
+      },
+      "add_on_services": [
+        {
+          "id": "air_conditioning_service",
+          "icon": "air_conditioning_service",
+          "name": "AIR CONDITIONING SERVICE",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replaceme",
+          "name": "AIR CONDITIONING RADIATOR REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_gas",
+          "icon": "air_conditioning_gas",
+          "name": "AIR CONDITIONING GAS",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_fluid_change",
+          "icon": "brake_fluid_change",
+          "name": "BRAKE FLUID CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "brake_pad_&_disc_front_or_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT OR REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_pad_&_disc_front_and_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT AND REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "clutch_oil_change",
+          "icon": "clutch_oil_change",
+          "name": "CLUTCH OIL CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "clutch_replacement",
+          "icon": "clutch_replacement",
+          "name": "CLUTCH REPLACEMENT",
+          "cost": "325"
+        },
+        {
+          "id": "cam_belt_replacement",
+          "icon": "cam_belt_replacement",
+          "name": "CAM BELT REPLACEMENT",
+          "cost": "325"
+        },
+        {
+          "id": "drive_belt_replacement",
+          "icon": "drive_belt_replacement",
+          "name": "DRIVE BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "WATER PUMP REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "vehicle_mot",
+          "icon": "vehicle_mot",
+          "name": "VEHICLE MOT",
+          "cost": "60"
+        }
+      ],
+      "other_modification": [
+        {
+          "id": "ims_upgrades",
+          "name": "Ims Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "rms_upgrades",
+          "name": "Rms Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "engine_rebuilds",
+          "name": "Engine Rebuilds",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_dansk",
+          "name": "exhaust Upgrades Dansk",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_other",
+          "name": "Exhaust Upgrades Other",
+          "cost": 1000
+        },
+        {
+          "id": "replacement_roof_fitted_with_glass",
+          "name": "Replacement Roof Fitted With Glass",
+          "cost": 1800
+        }
+      ]
+    },
+    {
+      "id": 944,
+      "minor_service": {
+        "name": "Minor Service",
+        "cost": 285,
+        "description": "<p>Full Checkover</p><p>Engine Oil & Filter Change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Road test</p><p>Auto 2000 stamp in the book</p>"
+      },
+      "major_service": {
+        "name": "Major Service",
+        "cost": 645,
+        "description": "<p>Full Checkover</p><p>Engine Oil & Filter Change</p><p>Spark plug change</p><p>Air filter change</p><p>Fuel filter change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Road test</p><p>Auto 2000 stamp in the book</p>"
+      },
+      "add_on_services": [
+        {
+          "id": "air_conditioning_service",
+          "icon": "air_conditioning_service",
+          "name": "AIR CONDITIONING SERVICE",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_radiator_replacement",
+          "icon": "air_conditioning_radiator_replacement",
+          "name": "AIR CONDITIONING RADIATOR REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "air_conditioning_gas",
+          "icon": "air_conditioning_gas",
+          "name": "AIR CONDITIONING GAS",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_fluid_change",
+          "icon": "brake_fluid_change",
+          "name": "BRAKE FLUID CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "brake_pad_&_disc_front_or_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT OR REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "brake_pad_&_disc_front_and_rear",
+          "icon": "brake_pad_and_disc",
+          "name": "BRAKE PAD & DISC FRONT AND REAR",
+          "cost": "1,000"
+        },
+        {
+          "id": "clutch_oil_change",
+          "icon": "clutch_oil_change",
+          "name": "CLUTCH OIL CHANGE",
+          "cost": "75"
+        },
+        {
+          "id": "clutch_replacement",
+          "icon": "clutch_replacement",
+          "name": "CLUTCH REPLACEMENT",
+          "cost": "325"
+        },
+        {
+          "id": "cam_belt_replacement",
+          "icon": "cam_belt_replacement",
+          "name": "CAM BELT REPLACEMENT",
+          "cost": "325"
+        },
+        {
+          "id": "drive_belt_replacement",
+          "icon": "drive_belt_replacement",
+          "name": "DRIVE BELT REPLACEMENT",
+          "cost": "75"
+        },
+        {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "WATER PUMP REPLACEMENT",
+          "cost": "1,000"
+        },
+        {
+          "id": "vehicle_mot",
+          "icon": "vehicle_mot",
+          "name": "VEHICLE MOT",
+          "cost": "60"
+        }
+      ],
+      "other_modification": [
+        {
+          "id": "ims_upgrades",
+          "name": "Ims Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "rms_upgrades",
+          "name": "Rms Upgrades",
+          "cost": 1000
+        },
+        {
+          "id": "engine_rebuilds",
+          "name": "Engine Rebuilds",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_dansk",
+          "name": "Exhaust Upgrades Dansk",
+          "cost": 1000
+        },
+        {
+          "id": "exhaust_upgrades_other",
+          "name": "Exhaust Upgrades Other",
+          "cost": 1000
+        },
+        {
+          "id": "replacement_roof_fitted_with_glass",
+          "name": "Replacement Roof Fitted With Glass",
+          "cost": 1800
+        }
+      ]
+    }
+  ]
+}

@@ -382,3 +382,7 @@ body {
   box-shadow: 0 0 1px 1px rgb(208, 1, 28);
   ;
 }
+
+.pricing-desc p{
+  margin: 0px !important;
+}

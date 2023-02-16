@@ -45,17 +45,15 @@ module.exports = (function () {
 			allPricing = fileHelper.readFile("pricing.json", "pricing");
 			let dataData = {};
 			if (allPricing && allPricing.data) {
-				
-				//data = allPricing.data.find(o => o.key === regNo);
 				var obj = allPricing.data;
-				dataData = obj.find(e => e.id == '987');
-				res.render('appointment', {
-					pricing: dataData,
-					layout: "layoutSite"
-				});
-				 
+				dataData = obj.find(e => e.id == regNo);
 			}
-			
+
+			res.render('appointment', {
+				pricingData: dataData,
+				layout: "layoutSite"
+			});
+
 		} catch (error) {
 			console.error(error);
 			res.sendStatus(500).end(JSON.stringify({
