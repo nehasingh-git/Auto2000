@@ -62,9 +62,39 @@ module.exports = (function () {
 		}
 	};
 
+	function appointment(req, res) {
+		try {
+			var name = req.body.name;
+			var phone = req.body.phone;
+
+			var response = responseInit(true, "Success.", {"message":"we have ack your request, our team will contact you soon"});
+			res.status(200).json(response);
+
+		} catch (error) {
+			var response = responseInit(false, 'Error while adding/updating new contest.');
+			res.status(500).json(response);
+		}
+	}
+
+	function responseInit(success, message, data) {
+		var response;
+		response = {
+			success: false,
+			data: {},
+			message: ''
+		};
+
+		response.success = success;
+		response.data = data;
+		response.message = message;
+
+		return response;
+	}
+
 	retVal.index = index;
 	retVal.contact = contact;
 	retVal.pricing = getPricing;
+	retVal.appointment = appointment;
 	// return module
 	return retVal;
 })();

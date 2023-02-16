@@ -28,7 +28,6 @@
     </h1>
     <div class="d-lg-flex  flex-lg-row d-sm-flex flex-sm-column justify-content-between ">
 
-
       <label class="card-label m-lg-5 col-lg-5 col-12">
         <input type="radio" name="product" class="card-input-element" />
         <div class="card card-input">
@@ -140,48 +139,67 @@
   <div class="pickup-drop d-flex py-4 bg-grey  text-red  flex-row justify-content-center">
     <h3 class="display-6 fw-bold"> Total amount here</h3>
   </div>
-
-  <div class="other-modification-services  bg-black p-5 text-light " id="chooseServices">
-    <h1 class="ps-lg-5 d-flex flex-row  ">
-      <span class="ps-lg-5 heading fw-bold text-light "> Complete Booking </span>
-    </h1>
-    <div class="ps-lg-5  personal-info py-2">
-      <h4 class="ps-lg-5 py-3"> PERSONAL INFORMATION</h4>
-      <div class="d-flex flex-row flex-wrap p-lg-5 pt-3 justify-content-between fw-bold ">
-        <div class="col-lg-4 col-12 pe-lg-5">
-          <input type="name" class="form-control form-control-custom" id="inputName" aria-describedby="nameHelp"
-            placeholder="Name">
-        </div>
-        <div class="col-lg-4 col-12 pe-lg-5 pt-lg-0 pt-3">
-          <input type="phone" class="form-control form-control-custom" id="inputPhone" aria-describedby="phoneHelp"
-            placeholder="Phone">
-        </div>
-        <div class="col-lg-4 col-12 pe-lg-5 pt-lg-0 pt-3">
-          <input type="email" class="form-control form-control-custom" id="inputEmail" aria-describedby="emailHelp"
-            placeholder="Email">
-        </div>
-
-      </div>
-
-    </div>
-    <div class="ps-lg-5  personal-info pb-5">
-      <h4 class="ps-lg-5 py-3"> CHOOSE DATE & TIME</h4>
-      <div class="d-flex flex-row flex-wrap px-lg-5 justify-content-between fw-bold ">
-        <div class="col-lg-6 col-12 pe-lg-5 ">
-
-          <div class="input-group">
-            <input placeholder="Select Date" class="form-control date-input" type="date" id="appointmentDate">
+  <form action="/appointment" method="POST" id="frmAppointment">
+    <div class="other-modification-services  bg-black p-5 text-light " id="chooseServices">
+      <h1 class="ps-lg-5 d-flex flex-row  ">
+        <span class="ps-lg-5 heading fw-bold text-light "> Complete Booking </span>
+      </h1>
+      <div class="ps-lg-5  personal-info py-2">
+        <h4 class="ps-lg-5 py-3"> PERSONAL INFORMATION</h4>
+        <div class="d-flex flex-row flex-wrap p-lg-5 pt-3 justify-content-between fw-bold ">
+          <div class="col-lg-4 col-12 pe-lg-5">
+            <input type="name" class="form-control form-control-custom" name="name" aria-describedby="nameHelp"
+              placeholder="Name">
+          </div>
+          <div class="col-lg-4 col-12 pe-lg-5 pt-lg-0 pt-3">
+            <input type="phone" class="form-control form-control-custom" name="phone" aria-describedby="phoneHelp"
+              placeholder="Phone">
+          </div>
+          <div class="col-lg-4 col-12 pe-lg-5 pt-lg-0 pt-3">
+            <input type="email" class="form-control form-control-custom" name="email" aria-describedby="emailHelp"
+              placeholder="Email">
           </div>
 
         </div>
-        <div class="col-lg-6 col-12 pe-lg-5 pt-lg-0 pt-3">
-          <input type="time" class="form-control" value="10:05 AM" />
+
+      </div>
+      <div class="ps-lg-5  personal-info pb-5">
+        <h4 class="ps-lg-5 py-3"> CHOOSE DATE & TIME</h4>
+        <div class="d-flex flex-row flex-wrap px-lg-5 justify-content-between fw-bold ">
+          <div class="col-lg-6 col-12 pe-lg-5 ">
+
+            <div class="input-group">
+              <input placeholder="Select Date" class="form-control date-input" type="date" name="appointmentDate">
+            </div>
+
+          </div>
+          <div class="col-lg-6 col-12 pe-lg-5 pt-lg-0 pt-3">
+            <input type="time" class="form-control" value="10:05 AM" name="appointmentTime" />
+          </div>
+        </div>
+        <div class="bg-black mt-5 d-flex flex-row justify-content-center shadow-lg " style="background-color:#2d2d2d">
+          <p class="py-3 m-0"> <i class="bi bi-info-circle"></i> please note that the date and time you requested may
+            not
+            be available. we will contact you to confirm your actual appointment details. </p>
+        </div>
+        <div class="d-flex flex-row justify-content-center py-5">
+          <button type="submit" class="col-lg-3 col-sm-4 btn btn-primary bg-red btn-lg btn-block">BOOK NOW</button>
+          </button>
         </div>
       </div>
-      <div class="bg-black mt-5 d-flex flex-row justify-content-center shadow-lg " style="background-color:#2d2d2d">
-        <p class="py-3 m-0"> <i class="bi bi-info-circle"></i> please note that the date and time you requested may not
-          be available. we will contact you to confirm your actual appointment details. </p>
-      </div>
     </div>
-  </div>
+  </form>
 </div>
+
+{{#section 'script'}}
+<script type="text/javascript">
+  document.forms[0].onsubmit = async (e) => {
+    e.preventDefault();
+    const params = new URLSearchParams([...new FormData(e.target).entries()]);
+    const response = await fetch("/appointment", { method: "POST", body: params })
+    const res = await response.json()
+    alert(res.data.message)
+
+  } 
+</script>
+{{/section}}

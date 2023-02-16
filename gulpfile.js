@@ -23,14 +23,12 @@ gulp.task('nodemon', function (cb) {
         ]
     })
         .on('start', function () {
-            console.log("hell1o")
             if (!called) {
                 called = true;
                 cb();
             }
         })
         .on('restart', function () {
-            console.log("hello")
             setTimeout(function () {
                 reload({
                     stream: false
