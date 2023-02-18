@@ -210,7 +210,7 @@
 
 
   function validataForm() {
-    return true;
+    //return true;
     var name = document.getElementsByName('name');
     if (!name[0].value) {
       alert("Please enter your name.");
@@ -255,10 +255,7 @@
       serviceArray.push({ 'id': id, 'type': type, 'name': name, 'cost': cost });
     } else {
       removeObjectWithId(serviceArray, id)
-    }
-
-
-
+    } 
     document.getElementsByName("serviceArray")[0].value = JSON.stringify(serviceArray);
     document.getElementById("data-total-price").innerText = serviceArray.reduce((a, b) => +a + +b.cost, 0);
   }
