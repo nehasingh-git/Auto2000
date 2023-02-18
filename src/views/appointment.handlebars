@@ -21,7 +21,7 @@
       </div>
     </div>
   </div>
-  {{#if pricingData}}
+  {{#if data}}
   <div class="choose-services  bg-grey p-5  " id="chooseServices">
     <h1 class="ps-lg-5  d-flex flex-row  ">
       <span class="ps-lg-5 heading fw-bold red-text "> Choose A service </span>
@@ -29,7 +29,10 @@
     <div class="d-lg-flex  flex-lg-row d-sm-flex flex-sm-column justify-content-between ">
 
       <label class="card-label m-lg-5 col-lg-5 col-12">
-        <input type="radio" name="product" class="card-input-element" />
+        {{assign 'msCost' 'data.minor_service.cost'}}
+        {{assign 'msName' 'data.minor_service.name'}}
+        <input type="radio" name="product" value="1" class="card-input-element"
+          onchange="selectMinorService({{data.minor_service.cost}},'minorService','{{data.minor_service.id}}','{{data.minor_service.name}}', '{{data.major_service.id}}','{{data.major_service.cost}}')" />
         <div class="card card-input">
           <div class="service-box bg-grey w100"></div>
           <div class="position-relative">
@@ -37,18 +40,19 @@
           </div>
           <div class="card-body px-5">
             <div class="d-flex flex-row bd-highlight mb-3 mt-3 justify-content-between align-items-baseline fw-bold">
-              <h5 class="  fw-bold "> {{pricingData.minor_service.name}} </h5>
-              <span class="display-5 fw-bold  text-red">£{{pricingData.minor_service.cost}}</span>
+              <h5 class="  fw-bold "> {{data.minor_service.name}} </h5>
+              <span class="display-5 fw-bold  text-red">£{{data.minor_service.cost}}</span>
             </div>
             <div class="pricing-desc">
-              {{{pricingData.minor_service.description}}}
+              {{{data.minor_service.description}}}
             </div>
 
           </div>
         </div>
       </label>
       <label class="card-label mt-5 m-lg-5 col-lg-5 col-12">
-        <input type="radio" name="product" class="card-input-element" />
+        <input type="radio" name="product" value="2" class="card-input-element"
+          onchange="selectMajorService( {{data.major_service.cost}},'majorService','{{data.major_service.id}}','{{data.major_service.name}}','{{data.minor_service.id}}','{{data.minor_service.cost}}')" />
         <div class="card card-input">
           <div class="service-box bg-grey w100"></div>
           <div class="icon-box position-relative">
@@ -56,11 +60,11 @@
           </div>
           <div class="card-body px-5">
             <div class="d-flex flex-row bd-highlight mb-3 mt-3 justify-content-between align-items-baseline fw-bold">
-              <h5 class="  fw-bold "> {{pricingData.major_service.name}} </h5>
-              <span class="display-5 fw-bold  text-red">£{{pricingData.major_service.cost}}</span>
+              <h5 class="  fw-bold "> {{data.major_service.name}} </h5>
+              <span class="display-5 fw-bold  text-red">£{{data.major_service.cost}}</span>
             </div>
             <div class="pricing-desc">
-              {{{pricingData.major_service.description}}}
+              {{{data.major_service.description}}}
             </div>
           </div>
         </div>
@@ -68,13 +72,13 @@
     </div>
   </div>
   {{/if}}
-  {{#if pricingData}}
+  {{#if data}}
   <div class="add-on-services bg-grey p-5  " id="chooseServices">
     <h1 class="ps-lg-5  d-flex flex-row  ">
       <span class="ps-lg-5 heading fw-bold red-text "> Pick the Add-on Services </span>
     </h1>
     <div class="d-flex flex-row flex-wrap px-lg-5 justify-content-between fw-bold ">
-      {{#each pricingData.add_on_services}}
+      {{#each data.add_on_services}}
       <div class="card icon-box my-3 mx-lg-3">
         <div class="card-body p-1 p-lg-4 mb-2">
           <div class="d-flex flex-row bd-highlight mb-3 justify-content-between fw-bold">
@@ -84,7 +88,8 @@
             <h4>£{{cost}}</h4>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="otherService_{{id}}">
+            <input class="form-check-input" type="checkbox" value=""
+              onchange="serviceTotal(this,{{cost}},'otherService','{{id}}','{{name}}')" id="otherService_{{id}}">
             <label class="form-check-label" for="flexCheckDefault">
               {{name}}
             </label>
@@ -96,26 +101,25 @@
     </div>
   </div>
   {{/if}}
-  {{#if pricingData}}
+  {{#if data}}
 
   <div class="other-modification-services  bg-grey p-5  " id="chooseServices">
     <h1 class="ps-lg-5 d-flex flex-row  ">
       <span class="ps-lg-5 heading fw-bold red-text "> Other Modifications </span>
     </h1>
     <div class="d-flex flex-row flex-wrap px-lg-5 justify-content-between fw-bold ">
-      {{#each pricingData.other_modification}}
+      {{#each data.other_modification}}
       <div class="card icon-box my-3 mx-lg-3">
         <div class="card-body">
           <div class="d-flex flex-column align-items-center fw-bold">
-
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="otherModification1">
+              <input class="form-check-input" type="checkbox" value=""
+                onchange="serviceTotal(this,{{cost}},'otherModification','{{id}}','{{name}}')" id="otherModification1">
               <label class="form-check-label" for="flexCheckDefault">
                 <h5>{{name}}</h5>
               </label>
             </div>
             <h3 class="mt-3 text-red">£{{cost}}</h3>
-
           </div>
         </div>
       </div>
@@ -129,7 +133,9 @@
 
   <div class="pickup-drop d-flex bg-grey px-3 flex-row justify-content-center">
     <div class="form-check text-Red fw-bold">
-      <input class="form-check-input" type="checkbox" value="" id="otherService1">
+      <input class="form-check-input" type="checkbox" value=""
+        onchange="serviceTotal(this,400,'pickupDropService','pickupDropService','pickupDropService')"
+        id="pickupDropService">
       <label class="form-check-label  text-red red-text" for="flexCheckDefault">
         <h4>REQUEST PICK N DROP FOR UPTO 100 MILES EACH WAY AT ADDITIONAL £400</h4>
       </label>
@@ -137,7 +143,7 @@
   </div>
 
   <div class="pickup-drop d-flex py-4 bg-grey  text-red  flex-row justify-content-center">
-    <h3 class="display-6 fw-bold"> Total amount here</h3>
+    <h3 class="display-6 fw-bold">Total Price: <span id="data-total-price">0</span></h3>
   </div>
   <form action="/appointment" method="POST" id="frmAppointment">
     <div class="other-modification-services  bg-black p-5 text-light " id="chooseServices">
@@ -159,19 +165,15 @@
             <input type="email" class="form-control form-control-custom" name="email" aria-describedby="emailHelp"
               placeholder="Email">
           </div>
-
         </div>
-
       </div>
       <div class="ps-lg-5  personal-info pb-5">
         <h4 class="ps-lg-5 py-3"> CHOOSE DATE & TIME</h4>
         <div class="d-flex flex-row flex-wrap px-lg-5 justify-content-between fw-bold ">
           <div class="col-lg-6 col-12 pe-lg-5 ">
-
             <div class="input-group">
               <input placeholder="Select Date" class="form-control date-input" type="date" name="appointmentDate">
             </div>
-
           </div>
           <div class="col-lg-6 col-12 pe-lg-5 pt-lg-0 pt-3">
             <input type="time" class="form-control" value="10:05 AM" name="appointmentTime" />
@@ -188,18 +190,104 @@
         </div>
       </div>
     </div>
+    <input type="hidden" name="regNo" value="{{regNo}}">
+    <input type="hidden" name="serviceArray" value="{}">
   </form>
 </div>
-
 {{#section 'script'}}
 <script type="text/javascript">
   document.forms[0].onsubmit = async (e) => {
-    e.preventDefault();
-    const params = new URLSearchParams([...new FormData(e.target).entries()]);
-    const response = await fetch("/appointment", { method: "POST", body: params })
-    const res = await response.json()
-    alert(res.data.message)
 
-  } 
+    e.preventDefault();
+    if (validataForm()) {
+      let formData = new FormData();
+      const params = new URLSearchParams([...new FormData(e.target).entries()]);
+      const response = await fetch("/appointment", { method: "POST", body: params })
+      const res = await response.json()
+      alert(res.data.message)
+    }
+  }
+
+
+  function validataForm() {
+    return true;
+    var name = document.getElementsByName('name');
+    if (!name[0].value) {
+      alert("Please enter your name.");
+      return false;
+    }
+
+    var phone = document.getElementsByName('phone');
+    if (!phone[0].value) {
+      alert("Please enter your phone number.");
+      return false;
+    }
+    var email = document.getElementsByName('email');
+    if (!email[0].value) {
+      alert("Please enter your email.");
+      return false;
+    }
+    var appointmentDate = document.getElementsByName('appointmentDate');
+    if (!appointmentDate[0].value) {
+      alert("Please enter appointment date");
+      return false;
+    }
+    var appointmentTime = document.getElementsByName('appointmentTime');
+    if (!appointmentTime[0].value) {
+      alert("Please enter appointment time");
+      return false;
+    }
+
+    return true;
+  }
+  const serviceArray = [];
+  function removeObjectWithId(arr, id) {
+    const objWithIdIndex = arr.findIndex((obj) => obj.id === id);
+
+    if (objWithIdIndex > -1) {
+      arr.splice(objWithIdIndex, 1);
+    }
+
+    return arr;
+  }
+  function serviceTotal(checkboxElem, cost, type, id, name) {
+    if (checkboxElem.checked) {
+      serviceArray.push({ 'id': id, 'type': type, 'name': name, 'cost': cost });
+    } else {
+      removeObjectWithId(serviceArray, id)
+    }
+
+
+
+    document.getElementsByName("serviceArray")[0].value = JSON.stringify(serviceArray);
+    document.getElementById("data-total-price").innerText = serviceArray.reduce((a, b) => +a + +b.cost, 0);
+  }
+
+  function selectMinorService(cost, type, id, name, otherItemId, otherItemCost) {
+    const found = serviceArray.find(el => el.id === id);
+    if (!found) {
+      serviceArray.push({ 'id': id, 'type': type, 'name': name, 'cost': cost });
+    }
+    const otherEle = serviceArray.find(el => el.id === otherItemId);
+    if (otherEle) {
+      removeObjectWithId(serviceArray, otherItemId)
+    }
+    document.getElementsByName("serviceArray")[0].value = JSON.stringify(serviceArray);
+    document.getElementById("data-total-price").innerText = serviceArray.reduce((a, b) => +a + +b.cost, 0);
+  }
+  function selectMajorService(cost, type, id, name, otherItemId, otherItemCost) {
+    const found = serviceArray.find(el => el.id === id);
+    if (!found) {
+      serviceArray.push({ 'id': id, 'type': type, 'name': name, 'cost': cost });
+    }
+
+    const otherEle = serviceArray.find(el => el.id === otherItemId);
+    if (otherEle) {
+      removeObjectWithId(serviceArray, otherItemId)
+    }
+
+    document.getElementsByName("serviceArray")[0].value = JSON.stringify(serviceArray);
+    document.getElementById("data-total-price").innerText = serviceArray.reduce((a, b) => +a + +b.cost, 0);
+  }
 </script>
 {{/section}}

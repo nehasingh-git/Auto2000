@@ -1,3 +1,4 @@
+
 module.exports = (function () {
 	// variables
 	var retVal;
@@ -7,8 +8,10 @@ module.exports = (function () {
 	handlebars = require('handlebars');
 	handlebarshelper = require('./../helpers/handlebars-helpers');
 	fileHelper = require('./../helpers/fileHelper');
+	emailHelper = require('./../helpers/emailHelper');
 	handlebars.registerHelper(handlebarshelper);
 	constants = require('../constants');
+	const nodemailer = require("nodemailer");
 	//Http request Functions   
 
 	function index(req, res) {
@@ -39,7 +42,7 @@ module.exports = (function () {
 		}
 	};
 
-	function getPricing(req, res) {
+	function appointmentGet(req, res) {
 		try {
 			var regNo = req.params.regNo;
 			allPricing = fileHelper.readFile("pricing.json", "pricing");
@@ -50,7 +53,8 @@ module.exports = (function () {
 			}
 
 			res.render('appointment', {
-				pricingData: dataData,
+				regNo: regNo,
+				data: dataData,
 				layout: "layoutSite"
 			});
 
@@ -64,10 +68,18 @@ module.exports = (function () {
 
 	function appointment(req, res) {
 		try {
-			var name = req.body.name;
-			var phone = req.body.phone;
-
-			var response = responseInit(true, "Success.", {"message":"we have ack your request, our team will contact you soon"});
+			data = {
+				name: req.body.name,
+				phone: req.body.phone,
+				email: req.body.email,
+				appointmentDate: req.body.appointmentDate,
+				appointmentTime: req.body.appointmentTime,
+				regNo: req.body.regNo,
+				services: JSON.parse(req.body.serviceArray)
+			};
+			emailHelper.appointmentConfirmation(data);
+			emailHelper.appointmentRequest(data);
+			var response = responseInit(true, "Success.", { "message": "we have ack your request, our team will contact you soon" });
 			res.status(200).json(response);
 
 		} catch (error) {
@@ -93,7 +105,7 @@ module.exports = (function () {
 
 	retVal.index = index;
 	retVal.contact = contact;
-	retVal.pricing = getPricing;
+	retVal.appointmentGet = appointmentGet;
 	retVal.appointment = appointment;
 	// return module
 	return retVal;

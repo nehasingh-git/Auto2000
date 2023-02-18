@@ -44,7 +44,8 @@ app.use(bp.urlencoded({
 }));
 app.use(bp.json( {limit: '1000mb', extended: true}));
 
-
+app.use(express.json());       
+app.use(express.urlencoded({extended: true})); 
 // Global Vars
 app.use(function (req, res, next) {
 

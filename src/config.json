@@ -1,6 +1,17 @@
 {
-    
     "appUrl": "http://localhost:3004",
     "staticDataVersion": "v1.10",
-    "cssVersion": "v1.0"
+    "cssVersion": "v1.0",
+    "googleAuthPep": {
+        "client_id": "527884823453-dinlj440lbb33g0b4nc866j1s04kbbj4.apps.googleusercontent.com",
+        "project_id": "auto2000-378216",
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://oauth2.googleapis.com/token",
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+        "client_secret": "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",
+        "redirect_uris": [
+            "https://testcar-377319.el.r.appspot.com/contact",
+            "http://localhost:8080/"
+        ]
+    }
 }

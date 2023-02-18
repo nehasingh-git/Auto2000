@@ -5,8 +5,7 @@ module.exports = (function () {
     path = require('path');
     fs = require("fs");
     handlebars = require('handlebars');
-    dateHelper = require('../helpers/dateHelper');
-    config = require("../config.json");
+    //dateHelper = require('../helpers/dateHelper');
     // assign variables
     retVal = {};
 
@@ -19,86 +18,84 @@ module.exports = (function () {
         secure: false,
         auth: {
             type: 'OAuth2',
-            user: 'sumeet.malik@pepcoding.com',
-            pass: 'vpbhknejnnivdehf',
-            serviceClient: config.googleAuthPep.client_id,
-            privateKey: config.googleAuthPep.private_key
+            
         }
     }
+
 
 
 
 
     var mailer = nodemailer.createTransport(gmailOptions);
 
-    function sendCreateAppointment(req, data, success, failure) {
+    function appointmentConfirmation(data) {
         try {
-            var user = req.session.user;
-
-            var programTabPath = path.join(__dirname, '..//views//email//', 'gjp.handlebars');
+            var programTabPath = path.join(__dirname, '..//views//email//', 'appointmentConfirmation.handlebars');
             var template = fs.readFileSync(programTabPath, "utf8");
             var compiledTemplate = handlebars.compile(template);
-
-            var subject = ((data.paymentStatus && data.paymentStatus) == false) ? " tried to apply for " : " applied for ";
-
             var email = {
-                to: 'contact@pepcoding.com',
-                from: '"PepCoding" <no-reply@pepcoding.com>',
-                subject: user.name + subject + " " + data.course,
-                text: user.name + subject + " " + data.course,
+                to: 'nehasingh.apr12@gmail.com',
+                from: 'porscherepairsuk@gmail.com',
+                subject: 'Appointment confirmation',
+                text: 'sample data',
                 html: compiledTemplate({
-                    user: user,
-                    data: data
+                    name: data.name,
+                    phone: data.phone,
+                    email: data.email,
+                    appointmentDate: data.appointmentDate,
+                    appointmentTime: data.appointmentTime,
+                    regNo: data.regNo,
+                    services: data.services
                 })
-            };
-            mailer.sendMail(email, function (err, res) {
+            }; 
+            mailer.sendMail(email, function (err) {
                 if (!err) {
-                    success();
+                    console.log('appointment confirmation mail sent.')
                 } else {
                     console.log(err.message)
-                    failure();
                 }
             });
 
         } catch (error) {
-            failure();
+            console.log('exception while sending appointment confirmation mail.')
         }
     }
 
-    function sendCreateAppointment(req, data, success, failure) {
+    function appointmentRequest(data) {
         try {
-            var user = req.session.user;
-            var programTabPath = path.join(__dirname, '..//views//email//', 'orderSuccessMail.handlebars');
+            var programTabPath = path.join(__dirname, '..//views//email//', 'appointmentRequest.handlebars');
             var template = fs.readFileSync(programTabPath, "utf8");
             var compiledTemplate = handlebars.compile(template);
-
             var email = {
-                to: user.email,
+                to: 'neha.singh@pepcoding.com',
                 from: '"PepCoding" <no-reply@pepcoding.com>',
-                subject: 'Order Confirmation',
-                text: 'We have received your order .',
+                subject: ' Appointment request',
+                text: 'sample data',
                 html: compiledTemplate({
-                    user: user,
-                    data: data,
+                    name: data.name,
+                    phone: data.phone,
+                    email: data.email,
+                    appointmentDate: data.appointmentDate,
+                    appointmentTime: data.appointmentTime,
+                    regNo: data.regNo,
+                    services: data.services
                 })
-            };
-
-            mailer.sendMail(email, function (err, res) {
+            }; 
+            mailer.sendMail(email, function (err) {
                 if (!err) {
-                    success();
+                    console.log('appointment request mail sent.')
                 } else {
                     console.log(err.message)
-                    failure();
                 }
             });
 
         } catch (error) {
-            failure();
+            console.log('exception while sending appointment request mail.')
         }
     }
 
-    retVal.sendAppointmentSuccess = sendAppointmentSuccess;
-    retVal.sendCreateAppointment= sendCreateAppointment;
+    retVal.appointmentConfirmation = appointmentConfirmation;
+    retVal.appointmentRequest = appointmentRequest;
     // return module
     return retVal;
 })();
