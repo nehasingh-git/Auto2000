@@ -17,16 +17,40 @@ module.exports = (function () {
         port: 465,
         secure: false,
         auth: {
-            type: 'OAuth2',
             
+            user: 'nehasingh.apr12@gmail.com',
+            pass: 'gatqlwuyxzgdewws'
         }
+    }
+    var mailer = nodemailer.createTransport(gmailOptions);
+
+
+    function appointmentConfirmation1() {
+        let mailTransporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'nehasingh.apr12@gmail.com',
+                pass: 'gatqlwuyxzgdewws'
+            }
+        });
+
+        let mailDetails = {
+            from: 'Porscherepairsuk@gmail.com',
+            to: 'nehasingh.apr12@gmail.com',
+            subject: 'Test mail',
+            text: 'Node.js testing mail for GeeksforGeeks'
+        };
+
+        mailTransporter.sendMail(mailDetails, function (err, data) {
+            if (err) {
+                console.log('Error Occurs' + err);
+            } else {
+                console.log('Email sent successfully');
+            }
+        });
     }
 
 
-
-
-
-    var mailer = nodemailer.createTransport(gmailOptions);
 
     function appointmentConfirmation(data) {
         try {
@@ -34,8 +58,8 @@ module.exports = (function () {
             var template = fs.readFileSync(programTabPath, "utf8");
             var compiledTemplate = handlebars.compile(template);
             var email = {
-                to: 'nehasingh.apr12@gmail.com',
-                from: 'porscherepairsuk@gmail.com',
+                to: data.email,
+                from: 'Porscherepairsuk@gmail.com',
                 subject: 'Appointment confirmation',
                 text: 'sample data',
                 html: compiledTemplate({
@@ -47,7 +71,7 @@ module.exports = (function () {
                     regNo: data.regNo,
                     services: data.services
                 })
-            }; 
+            };
             mailer.sendMail(email, function (err) {
                 if (!err) {
                     console.log('appointment confirmation mail sent.')
@@ -67,9 +91,9 @@ module.exports = (function () {
             var template = fs.readFileSync(programTabPath, "utf8");
             var compiledTemplate = handlebars.compile(template);
             var email = {
-                to: 'neha.singh@pepcoding.com',
-                from: '"PepCoding" <no-reply@pepcoding.com>',
-                subject: ' Appointment request',
+                to: 'porscherepairsuk@gmail.com',
+                from: 'Porscherepairsuk@gmail.com',
+                subject: 'Appointment request',
                 text: 'sample data',
                 html: compiledTemplate({
                     name: data.name,
@@ -80,7 +104,7 @@ module.exports = (function () {
                     regNo: data.regNo,
                     services: data.services
                 })
-            }; 
+            };
             mailer.sendMail(email, function (err) {
                 if (!err) {
                     console.log('appointment request mail sent.')
