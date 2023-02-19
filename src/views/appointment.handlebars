@@ -89,7 +89,7 @@
           </div>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value=""
-              onchange="serviceTotal(this,{{cost}},'otherService','{{id}}','{{name}}')" id="otherService_{{id}}">
+              onchange="serviceTotal(this,{{cost}},'addOnService','{{id}}','{{name}}')" id="addOnService_{{id}}">
             <label class="form-check-label" for="flexCheckDefault">
               {{name}}
             </label>
@@ -126,9 +126,6 @@
       {{/each}}
     </div>
   </div>
-
-
-
   {{/if}}
 
   <div class="pickup-drop d-flex bg-grey px-3 flex-row justify-content-center">

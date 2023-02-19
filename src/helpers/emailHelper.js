@@ -7,6 +7,8 @@ module.exports = (function () {
     handlebars = require('handlebars');
     //dateHelper = require('../helpers/dateHelper');
     // assign variables
+
+    // 'wjjuykiaqfccftd'
     retVal = {};
 
     var nodemailer = require('nodemailer');
@@ -17,40 +19,12 @@ module.exports = (function () {
         port: 465,
         secure: false,
         auth: {
-            
-            user: 'nehasingh.apr12@gmail.com',
-            pass: 'gatqlwuyxzgdewws'
+
+            user: 'porscherepairsuk@gmail.com',
+            pass: 'rxymgmnzhnzdkjbd'
         }
     }
     var mailer = nodemailer.createTransport(gmailOptions);
-
-
-    function appointmentConfirmation1() {
-        let mailTransporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: 'nehasingh.apr12@gmail.com',
-                pass: 'gatqlwuyxzgdewws'
-            }
-        });
-
-        let mailDetails = {
-            from: 'Porscherepairsuk@gmail.com',
-            to: 'nehasingh.apr12@gmail.com',
-            subject: 'Test mail',
-            text: 'Node.js testing mail for GeeksforGeeks'
-        };
-
-        mailTransporter.sendMail(mailDetails, function (err, data) {
-            if (err) {
-                console.log('Error Occurs' + err);
-            } else {
-                console.log('Email sent successfully');
-            }
-        });
-    }
-
-
 
     function appointmentConfirmation(data) {
         try {
@@ -69,7 +43,13 @@ module.exports = (function () {
                     appointmentDate: data.appointmentDate,
                     appointmentTime: data.appointmentTime,
                     regNo: data.regNo,
-                    services: data.services
+                    model:data.model,
+                    services: data.services,
+                    serviceType: data.serviceType,
+                    addOnServices: data.addOnServices,
+                    otherModifications: data.otherModifications,
+                    pickupDropService: data.pickupDropService,
+                    orderTotal: data.orderTotal
                 })
             };
             mailer.sendMail(email, function (err) {
@@ -81,6 +61,7 @@ module.exports = (function () {
             });
 
         } catch (error) {
+            console.log(error)
             console.log('exception while sending appointment confirmation mail.')
         }
     }
@@ -102,7 +83,13 @@ module.exports = (function () {
                     appointmentDate: data.appointmentDate,
                     appointmentTime: data.appointmentTime,
                     regNo: data.regNo,
-                    services: data.services
+                    model:data.model,
+                    services: data.services,
+                    serviceType: data.serviceType,
+                    addOnServices: data.addOnServices,
+                    otherModifications: data.otherModifications,
+                    pickupDropService: data.pickupDropService,
+                    orderTotal: data.orderTotal
                 })
             };
             mailer.sendMail(email, function (err) {

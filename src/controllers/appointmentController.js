@@ -68,22 +68,34 @@ module.exports = (function () {
 
 	function appointment(req, res) {
 		try {
+			var services = JSON.parse(req.body.serviceArray);
+			var serviceType = services.find(x => x.type == 'minorService' || x.type == 'majorService')
+			var addOnServices = services.filter(x => x.type == 'addOnService')
+			var otherModifications = services.filter(x => x.type == 'otherModification')
+			var pickupDropService = services.find(x => x.type == 'pickupDropService');
 			data = {
 				name: req.body.name,
 				phone: req.body.phone,
 				email: req.body.email,
 				appointmentDate: req.body.appointmentDate,
 				appointmentTime: req.body.appointmentTime,
-				regNo: req.body.regNo,
-				services: JSON.parse(req.body.serviceArray)
+				regNo: 'ROB996',
+				serviceType: serviceType,
+				model: 'Porsche 911 GT3',
+				addOnServices: addOnServices,
+				otherModifications: otherModifications,
+				pickupDropService: pickupDropService,
+				orderTotal: services.reduce((a, b) => +a + +b.cost, 0)
 			};
-			emailHelper.appointmentConfirmation(data);
+
+			//emailHelper.appointmentConfirmation(data);
 			emailHelper.appointmentRequest(data);
 			var response = responseInit(true, "Success.", { "message": "we have ack your request, our team will contact you soon" });
 			res.status(200).json(response);
 
 		} catch (error) {
-			var response = responseInit(false, 'Error while adding/updating new contest.');
+			console.log(error)
+			var response = responseInit(false, "Server Error.", { "message": "Server Error , Please try fter some time" });
 			res.status(500).json(response);
 		}
 	}
