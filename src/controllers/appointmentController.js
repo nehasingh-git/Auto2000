@@ -88,7 +88,7 @@ module.exports = (function () {
 				orderTotal: services.reduce((a, b) => +a + +b.cost, 0)
 			};
 
-			//emailHelper.appointmentConfirmation(data);
+			emailHelper.appointmentConfirmation(data);
 			emailHelper.appointmentRequest(data);
 			var response = responseInit(true, "Success.", { "message": "we have ack your request, our team will contact you soon" });
 			res.status(200).json(response);
