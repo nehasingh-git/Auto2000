@@ -238,9 +238,6 @@ module.exports = (function () {
     const words = str.split(" ");
     for (let i = 0; i < words.length; i++) {
       words[i] = words[i][0].toUpperCase() + words[i].substr(1).toLowerCase();
-
-      console.log(words)
-      
     }
     return words.join(" ")
   }
@@ -331,6 +328,7 @@ module.exports = (function () {
     return !boolValue;
   }
 
+ 
 
   retval.ifeq = ifeq;
   retval.bar = bar;
@@ -365,7 +363,7 @@ module.exports = (function () {
   retval.decryptString = decryptString;
   retval.formatDate = formatDate;
   retval.getTimeDifference = getTimeDifference;
-  retval.invertBool = invertBool;
+  retval.invertBool = invertBool; 
   return retval;
 
 })();

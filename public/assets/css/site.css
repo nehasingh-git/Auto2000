@@ -339,6 +339,10 @@ body {
   width: 28%;
 }
 
+.additional-services .card {
+  width: 25%;
+}
+
 .other-modification-services .card {
   width: 30%;
 }
@@ -349,6 +353,9 @@ body {
     width: 49%;
   }
 
+  .additional-services .card {
+    width: 80%;
+  }
   .other-modification-services .card {
     width: 49%;
   }

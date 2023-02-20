@@ -1,5 +1,5 @@
 <div class="container-fluid  p-0 pb-5  ">
-  <div class="bookAppointmentHeader row mx-auto bg-brown text-light py-5" id="bookAppointment">
+  <div class="serviceHeader row mx-auto bg-brown text-light py-5" id="bookAppointment">
     <div class="col-12 mx-auto text-center">
       <div class="row ">
         <h3 class="col-12 display-6  fw-bold "> Our Services </h3>
@@ -22,11 +22,11 @@
   </div>
   {{/if}}
 
-  <div class="add-on-services bg-grey p-5   " id="chooseServices">
-    <h1 class="ps-lg-5  d-flex flex-row  ">
+  <div class="add-on-services bg-grey  " id="chooseServices">
+    <h1 class="ps-5  d-flex flex-row  ">
       <span class="ps-lg-5 heading fw-bold red-text "> Additional Services </span>
     </h1>
-    <div class="d-lg-flex flex-lg-row d-sm-flex flex-sm-column justify-content-center">
+    <div class="d-flex flex-row flex-wrap px-lg-5 pb-5 justify-content-center additional-services">
       {{#each data.add_on_services}}
       {{> services/serviceCard data=this}}
       {{/each}}
