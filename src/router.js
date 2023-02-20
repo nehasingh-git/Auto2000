@@ -1,12 +1,12 @@
 
 module.exports = (function () {
   // variables
-  var appointmentController;
+  var indexController;
 
   // assign variables
 
 
-  appointmentController = require('./controllers/appointmentController');
+  indexController = require('./controllers/indexController');
   errorController = require('./controllers/errorController');
   express = require('express');
   // // authorize = require("./middleware/authorisation");
@@ -17,10 +17,11 @@ module.exports = (function () {
   router = express.Router();
 
   //map routes for index controller  
-  router.route('/').get(appointmentController.index);
-  router.route('/contact').get(appointmentController.contact);
-  router.route('/appointment/:regNo').get(appointmentController.appointmentGet);
-  router.route('/appointment').post(appointmentController.appointment);
+  router.route('/').get(indexController.index);
+  router.route('/contact').get(indexController.contact);
+  router.route('/services').get(indexController.services);
+  router.route('/appointment/:regNo').get(indexController.appointmentGet);
+  router.route('/appointment').post(indexController.appointment);
   router.route('/403').get(errorController.unAuthorize);
   router.route('/404').get(errorController.notFound);
   router.route('/serverError').get(errorController.serverError);

@@ -42,10 +42,26 @@ module.exports = (function () {
 		}
 	};
 
+	function services(req, res) {
+		try {
+			services = fileHelper.readFile("services.json", "index");
+			res.render('services', {
+				data: services,
+				layout: "layoutSite"
+			});
+
+		} catch (error) {
+			console.error(error);
+			res.sendStatus(500).end(JSON.stringify({
+				error: "error"
+			}))
+		}
+	};
+
 	function appointmentGet(req, res) {
 		try {
 			var regNo = req.params.regNo;
-			allPricing = fileHelper.readFile("pricing.json", "pricing");
+			allPricing = fileHelper.readFile("pricing.json", "index");
 			let dataData = {};
 			if (allPricing && allPricing.data) {
 				var obj = allPricing.data;
@@ -119,6 +135,7 @@ module.exports = (function () {
 	retVal.contact = contact;
 	retVal.appointmentGet = appointmentGet;
 	retVal.appointment = appointment;
+	retVal.services = services;
 	// return module
 	return retVal;
 })();
