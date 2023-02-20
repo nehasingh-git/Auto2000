@@ -19,6 +19,7 @@ module.exports = (function () {
   //map routes for index controller  
   router.route('/').get(indexController.index);
   router.route('/contact').get(indexController.contact);
+  router.route('/contact').post(indexController.contactPost);
   router.route('/services').get(indexController.services);
   router.route('/appointment/:regNo').get(indexController.appointmentGet);
   router.route('/appointment').post(indexController.appointment);

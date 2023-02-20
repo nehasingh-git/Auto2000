@@ -43,7 +43,7 @@ module.exports = (function () {
                     appointmentDate: data.appointmentDate,
                     appointmentTime: data.appointmentTime,
                     regNo: data.regNo,
-                    model:data.model,
+                    model: data.model,
                     services: data.services,
                     serviceType: data.serviceType,
                     addOnServices: data.addOnServices,
@@ -54,7 +54,7 @@ module.exports = (function () {
             };
             mailer.sendMail(email, function (err) {
                 if (!err) {
-                    console.log('appointment confirmation mail sent.')
+                    console.log('appointment confirmation mail sent. ' + console.error)
                 } else {
                     console.log(err.message)
                 }
@@ -83,7 +83,7 @@ module.exports = (function () {
                     appointmentDate: data.appointmentDate,
                     appointmentTime: data.appointmentTime,
                     regNo: data.regNo,
-                    model:data.model,
+                    model: data.model,
                     services: data.services,
                     serviceType: data.serviceType,
                     addOnServices: data.addOnServices,
@@ -94,7 +94,7 @@ module.exports = (function () {
             };
             mailer.sendMail(email, function (err) {
                 if (!err) {
-                    console.log('appointment request mail sent.')
+                    console.log('appointment request mail sent. ' + error)
                 } else {
                     console.log(err.message)
                 }
@@ -104,9 +104,37 @@ module.exports = (function () {
             console.log('exception while sending appointment request mail.')
         }
     }
+    function contactTeam(data) {
+        try {
+            var programTabPath = path.join(__dirname, '..//views//email//', 'contact.handlebars');
+            var template = fs.readFileSync(programTabPath, "utf8");
+            var compiledTemplate = handlebars.compile(template);
+            var email = {
+                to: 'porscherepairsuk@gmail.com',
+                from: 'Porscherepairsuk@gmail.com',
+                subject: 'New Contact request',
+                text: 'sample data',
+                html: compiledTemplate({
+                    name: data.name,
+                    email: data.email,
+                    message: data.message
+                })
+            };
+            mailer.sendMail(email, function (err) {
+                if (!err) {
+                    console.log('contact request mail sent.')
+                } else {
+                    console.log(err.message)
+                }
+            });
 
+        } catch (error) {
+            console.log('exception while sending contact request mail. '+error)
+        }
+    }
     retVal.appointmentConfirmation = appointmentConfirmation;
     retVal.appointmentRequest = appointmentRequest;
+    retVal.contactTeam = contactTeam;
     // return module
     return retVal;
 })();

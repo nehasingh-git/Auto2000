@@ -42,6 +42,24 @@ module.exports = (function () {
 		}
 	};
 
+	function contactPost(req, res) {
+		try {
+			data = {
+				name: req.body.name,
+				message: req.body.message,
+				email: req.body.email
+			};
+			emailHelper.contactTeam(data);
+			var response = responseInit(true, "Success.", { "message": "we have acknowledged your request, our team will contact you soon" });
+			res.status(200).json(response);
+
+		} catch (error) {
+			console.log(error)
+			var response = responseInit(false, "Server Error.", { "message": "Server Error , Please try after some time" });
+			res.status(500).json(response);
+		}
+	}
+
 	function services(req, res) {
 		try {
 			services = fileHelper.readFile("services.json", "index");
@@ -106,12 +124,12 @@ module.exports = (function () {
 
 			emailHelper.appointmentConfirmation(data);
 			emailHelper.appointmentRequest(data);
-			var response = responseInit(true, "Success.", { "message": "we have ack your request, our team will contact you soon" });
+			var response = responseInit(true, "Success.", { "message": "we have acknowledged your request, our team will contact you soon" });
 			res.status(200).json(response);
 
 		} catch (error) {
 			console.log(error)
-			var response = responseInit(false, "Server Error.", { "message": "Server Error , Please try fter some time" });
+			var response = responseInit(false, "Server Error.", { "message": "Server Error , Please try after some time" });
 			res.status(500).json(response);
 		}
 	}
@@ -136,6 +154,7 @@ module.exports = (function () {
 	retVal.appointmentGet = appointmentGet;
 	retVal.appointment = appointment;
 	retVal.services = services;
+	retVal.contactPost = contactPost;
 	// return module
 	return retVal;
 })();
