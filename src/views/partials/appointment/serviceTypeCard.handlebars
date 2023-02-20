@@ -1,22 +1,31 @@
- <label class="card-label m-lg-5 col-lg-5 col-12 mt-lg-0 mt-5">
-       
-        <input type="radio" name="product" value="1" class="card-input-element"
-          onchange="selectService({{data.cost}},'{{data.type}}','{{data.id}}','{{data.name}}', '{{otherItem.id}}','{{otherItem.cost}}')" />
-        <div class="card card-input">
-          <div class="service-box bg-grey w100"></div>
-          <div class="position-relative">
-            <div class="bg-red choose-service-box"><img class="box"
-                src="../public/assets/icons/{{data.icon}}.svg"></div>
-          </div>
-          <div class="card-body px-5">
-            <div class="d-flex flex-row bd-highlight mb-3 mt-3 justify-content-between align-items-baseline fw-bold">
-              <h5 class="  fw-bold "> {{data.name}} </h5>
-              <span class="display-5 fw-bold  text-red">£{{data.cost}}</span>
-            </div>
-            <div class="pricing-desc">
-              {{{data.description}}}
-            </div>
+{{#if clickable}}
+<label class="card-label m-lg-5 col-lg-5 col-12 mt-lg-0 mt-5">
+  <input type="radio" name="product" value="1" class="card-input-element"
+    onchange="selectService({{data.cost}},'{{data.type}}','{{data.id}}','{{data.name}}', '{{otherItem.id}}','{{otherItem.cost}}')" />
 
-          </div>
+  {{else}}
+  <div class="card-label m-lg-5 col-lg-5 col-12 mt-lg-0 mt-5">
+    {{/if}}
+    <div class="card card-input">
+      <div class="service-box bg-grey w100"></div>
+      <div class="position-relative">
+        <div class="bg-red choose-service-box"><img class="box" src="../public/assets/icons/{{data.icon}}.svg"></div>
+      </div>
+      <div class="card-body px-5">
+        <div class="d-flex flex-row bd-highlight mb-3 mt-3 justify-content-between align-items-baseline fw-bold">
+          <h5 class="  fw-bold mt-3"> {{data.name}} </h5>
+          {{#if clickable}}
+          <span class="display-5 fw-bold  text-red">£{{data.cost}}</span>
+          {{/if}}
         </div>
-      </label>
+        <div class="pricing-desc">
+          {{{data.description}}}
+        </div>
+
+      </div>
+    </div>
+    {{#if clickable}}
+</label>
+{{else}}
+</div>
+{{/if}}

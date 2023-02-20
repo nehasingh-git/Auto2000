@@ -28,8 +28,8 @@
     </h1>
     <div class="d-lg-flex  flex-lg-row d-sm-flex flex-sm-column justify-content-between ">
 
-      {{> appointment/serviceTypeCard data=data.minor_service otherItem=data.major_service   callBack='selectMinorService'}}
-       {{> appointment/serviceTypeCard data=data.major_service otherItem=data.minor_service  callBack='selectMajorService'}}
+      {{> appointment/serviceTypeCard data=data.minor_service otherItem=data.major_service  clickable=true}}
+       {{> appointment/serviceTypeCard data=data.major_service otherItem=data.minor_service  clickable=true}}
       {{!-- <label class="card-label m-lg-5 col-lg-5 col-12">
         {{assign 'msCost' 'data.minor_service.cost'}}
         {{assign 'msName' 'data.minor_service.name'}}
