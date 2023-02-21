@@ -390,3 +390,7 @@ body {
 .pricing-desc p{
   margin: 0px !important;
 }
+
+.flex-even {
+  flex: 1;
+}
