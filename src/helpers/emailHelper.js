@@ -54,7 +54,7 @@ module.exports = (function () {
             };
             mailer.sendMail(email, function (err) {
                 if (!err) {
-                    console.log('appointment confirmation mail sent. ' + console.error)
+                    console.log('appointment confirmation mail sent. ' + err)
                 } else {
                     console.log(err.message)
                 }

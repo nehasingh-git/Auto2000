@@ -129,6 +129,7 @@
       "id": "boxster_987",
       "minor_service": {
         "id": "minorService",
+        "type": "minorService",
         "name": "Minor Service",
         "icon": "minor_service",
         "cost": 285,
@@ -136,6 +137,7 @@
       },
       "major_service": {
         "id": "majorService",
+        "type": "majorService",
         "name": "Major Service",
         "icon": "major_service",
         "cost": 650,
@@ -252,6 +254,7 @@
       "id": "911 3.2/SC",
       "minor_service": {
         "id": "minorService",
+        "type": "minorService",
         "name": "Minor Service",
         "icon": "minor_service",
         "description": "<p>Full Checkover</p><p>Engine Oil & Filter Change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Road test</p><p>Auto 2000 stamp in the book</p>",
@@ -259,6 +262,7 @@
       },
       "major_service": {
         "id": "majorService",
+        "type": "majorService",
         "name": "Major Service",
         "icon": "major_service",
         "cost": 670,
@@ -375,6 +379,7 @@
       "id": 964,
       "minor_service": {
         "id": "minorService",
+        "type": "minorService",
         "name": "Minor Service",
         "icon": "minor_service",
         "cost": 285,
@@ -382,6 +387,7 @@
       },
       "major_service": {
         "id": "majorService",
+        "type": "majorService",
         "name": "Major Service",
         "icon": "major_service",
         "cost": 915,
@@ -498,6 +504,7 @@
       "id": 993,
       "minor_service": {
         "id": "minorService",
+        "type": "minorService",
         "name": "Minor Service",
         "icon": "minor_service",
         "cost": 350,
@@ -505,6 +512,7 @@
       },
       "major_service": {
         "id": "majorService",
+        "type": "majorService",
         "name": "Major Service",
         "icon": "major_service",
         "cost": 980,
@@ -621,6 +629,7 @@
       "id": "911_996",
       "minor_service": {
         "id": "minorService",
+        "type": "minorService",
         "name": "Minor Service",
         "icon": "minor_service",
         "cost": 285,
@@ -628,6 +637,7 @@
       },
       "major_service": {
         "id": "majorService",
+        "type": "majorService",
         "name": "Major Service",
         "icon": "major_service",
         "cost": 645,
@@ -744,6 +754,7 @@
       "id": "911_997",
       "minor_service": {
         "id": "minorService",
+        "type": "minorService",
         "name": "Minor Service",
         "icon": "minor_service",
         "cost": 285,
@@ -751,6 +762,7 @@
       },
       "major_service": {
         "id": "majorService",
+        "type": "majorService",
         "name": "Major Service",
         "icon": "major_service",
         "cost": 665,
@@ -867,6 +879,7 @@
       "id": "911_991",
       "minor_service": {
         "id": "minorService",
+        "type": "minorService",
         "name": "Minor Service",
         "icon": "minor_service",
         "cost": 285,
@@ -874,6 +887,7 @@
       },
       "major_service": {
         "id": "majorService",
+        "type": "majorService",
         "name": "Major Service",
         "icon": "major_service",
         "cost": "500 - 670",
@@ -990,6 +1004,7 @@
       "id": "Cayenne",
       "minor_service": {
         "id": "minorService",
+        "type": "minorService",
         "name": "Minor Service",
         "icon": "minor_service",
         "cost": 285,
@@ -997,6 +1012,7 @@
       },
       "major_service": {
         "id": "majorService",
+        "type": "majorService",
         "name": "Major Service",
         "icon": "major_service",
         "cost": 570,
@@ -1114,6 +1130,7 @@
       "id": "Panamera",
       "minor_service": {
         "id": "minorService",
+        "type": "minorService",
         "name": "Minor Service",
         "icon": "minor_service",
         "cost": 280,
@@ -1121,6 +1138,7 @@
       },
       "major_service": {
         "id": "majorService",
+        "type": "majorService",
         "name": "Major Service",
         "icon": "major_service",
         "cost": 570,
@@ -1237,6 +1255,7 @@
       "id": "Macan",
       "minor_service": {
         "id": "minorService",
+        "type": "minorService",
         "name": "Minor Service",
         "icon": "minor_service",
         "cost": 280,
@@ -1244,6 +1263,7 @@
       },
       "major_service": {
         "id": "majorService",
+        "type": "majorService",
         "name": "Major Service",
         "icon": "major_service",
         "cost": 570,
@@ -1360,6 +1380,7 @@
       "id": 924,
       "minor_service": {
         "id": "minorService",
+        "type": "minorService",
         "name": "Minor Service",
         "icon": "minor_service",
         "cost": 195,
@@ -1367,6 +1388,7 @@
       },
       "major_service": {
         "id": "majorService",
+        "type": "majorService",
         "name": "Major Service",
         "icon": "major_service",
         "cost": 500,
@@ -1483,6 +1505,7 @@
       "id": 928,
       "minor_service": {
         "id": "minorService",
+        "type": "minorService",
         "name": "Minor Service",
         "icon": "minor_service",
         "cost": 285,
@@ -1490,6 +1513,7 @@
       },
       "major_service": {
         "id": "majorService",
+        "type": "majorService",
         "name": "Major Service",
         "icon": "major_service",
         "cost": 645,
@@ -1607,12 +1631,14 @@
       "minor_service": {
         "id": "minorService",
         "name": "Minor Service",
+        "type": "minorService",
         "icon": "minor_service",
         "cost": 285,
         "description": "<p>Full Checkover</p><p>Engine Oil & Filter Change</p><p>Check & set fluid levels</p><p>Check tyre pressures</p><p>Road test</p><p>Auto 2000 stamp in the book</p>"
       },
       "major_service": {
         "id": "majorService",
+        "type": "majorService",
         "name": "Major Service",
         "icon": "major_service",
         "cost": 645,

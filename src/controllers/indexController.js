@@ -85,7 +85,7 @@ module.exports = (function () {
 				var obj = allPricing.data;
 				dataData = obj.find(e => e.id == regNo);
 			}
-
+			//console.log(dataData)
 			res.render('appointment', {
 				regNo: regNo,
 				data: dataData,
@@ -104,6 +104,8 @@ module.exports = (function () {
 		try {
 			var services = JSON.parse(req.body.serviceArray);
 			var serviceType = services.find(x => x.type == 'minorService' || x.type == 'majorService')
+
+			console.log(serviceType)
 			var addOnServices = services.filter(x => x.type == 'addOnService')
 			var otherModifications = services.filter(x => x.type == 'otherModification')
 			var pickupDropService = services.find(x => x.type == 'pickupDropService');
