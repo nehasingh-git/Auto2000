@@ -1,0 +1,18 @@
+<div class="card icon-box my-3 mx-lg-3">
+    <div class="card-body p-1 p-lg-4 mb-2">
+        <div class="d-flex flex-row bd-highlight mb-3 justify-content-between fw-bold">
+            <div class=" position-relative">
+                <img class="box" src="../public/assets/icons/{{data.icon}}.svg">
+            </div>
+            <h4>£{{data.cost}}</h4>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value=""
+                onchange="serviceTotal(this,{{data.cost}},'addOnService','{{data.id}}','{{data.name}}')" id="addOnService_{{data.id}}">
+           <p class="form-check-label" for="flexCheckDefault">
+               {{toNormalCase data.name}}
+            </p>
+        </div>
+    </div>
+</div>
+ 

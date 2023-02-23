@@ -30,49 +30,7 @@
 
       {{> appointment/serviceTypeCard data=data.minor_service otherItem=data.major_service  clickable=true}}
        {{> appointment/serviceTypeCard data=data.major_service otherItem=data.minor_service  clickable=true}}
-      {{!-- <label class="card-label m-lg-5 col-lg-5 col-12">
-        {{assign 'msCost' 'data.minor_service.cost'}}
-        {{assign 'msName' 'data.minor_service.name'}}
-        <input type="radio" name="product" value="1" class="card-input-element"
-          onchange="selectMinorService({{data.minor_service.cost}},'minorService','{{data.minor_service.id}}','{{data.minor_service.name}}', '{{data.major_service.id}}','{{data.major_service.cost}}')" />
-        <div class="card card-input">
-          <div class="service-box bg-grey w100"></div>
-          <div class="position-relative">
-            <div class="bg-red choose-service-box"><img class="box"
-                src="../public/assets/icons/{{data.minor_service.icon}}.svg"></div>
-          </div>
-          <div class="card-body px-5">
-            <div class="d-flex flex-row bd-highlight mb-3 mt-3 justify-content-between align-items-baseline fw-bold">
-              <h5 class="  fw-bold "> {{data.minor_service.name}} </h5>
-              <span class="display-5 fw-bold  text-red">£{{data.minor_service.cost}}</span>
-            </div>
-            <div class="pricing-desc">
-              {{{data.minor_service.description}}}
-            </div>
-
-          </div>
-        </div>
-      </label>
-      <label class="card-label mt-5 m-lg-5 col-lg-5 col-12">
-        <input type="radio" name="product" value="2" class="card-input-element"
-          onchange="selectMajorService( {{data.major_service.cost}},'majorService','{{data.major_service.id}}','{{data.major_service.name}}','{{data.minor_service.id}}','{{data.minor_service.cost}}')" />
-        <div class="card card-input">
-          <div class="service-box bg-grey w100"></div>
-          <div class="position-relative">
-            <div class="bg-red choose-service-box"><img class="box"
-                src="../public/assets/icons/{{data.minor_service.icon}}.svg"></div>
-          </div>
-          <div class="card-body px-5">
-            <div class="d-flex flex-row bd-highlight mb-3 mt-3 justify-content-between align-items-baseline fw-bold">
-              <h5 class="  fw-bold "> {{data.major_service.name}} </h5>
-              <span class="display-5 fw-bold  text-red">£{{data.major_service.cost}}</span>
-            </div>
-            <div class="pricing-desc">
-              {{{data.major_service.description}}}
-            </div>
-          </div>
-        </div>
-      </label> --}}
+      
     </div>
   </div>
   {{/if}}
@@ -83,23 +41,7 @@
     </h1>
     <div class="d-flex flex-row flex-wrap px-lg-5 justify-content-between fw-bold ">
       {{#each data.add_on_services}}
-      <div class="card icon-box my-3 mx-lg-3">
-        <div class="card-body p-1 p-lg-4 mb-2">
-          <div class="d-flex flex-row bd-highlight mb-3 justify-content-between fw-bold">
-            <div class=" position-relative">
-              <img class="box" src="../public/assets/icons/{{icon}}.svg" style="height: 60px;width:60px;">
-            </div>
-            <h4>£{{cost}}</h4>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value=""
-              onchange="serviceTotal(this,{{cost}},'addOnService','{{id}}','{{name}}')" id="addOnService_{{id}}">
-            <label class="form-check-label" for="flexCheckDefault">
-              {{name}}
-            </label>
-          </div>
-        </div>
-      </div>
+      {{> appointment/addonServiceCard data = this}}
       {{/each}}
 
     </div>
@@ -120,10 +62,10 @@
               <input class="form-check-input" type="checkbox" value=""
                 onchange="serviceTotal(this,{{cost}},'otherModification','{{id}}','{{name}}')" id="otherModification1">
               <label class="form-check-label" for="flexCheckDefault">
-                <h5>{{name}}</h5>
+                <p>{{name}}</p>
               </label>
             </div>
-            <h3 class="mt-3 text-red">£{{cost}}</h3>
+            <h3 class="mt-3">£{{cost}}</h3>
           </div>
         </div>
       </div>
@@ -137,14 +79,14 @@
       <input class="form-check-input" type="checkbox" value=""
         onchange="serviceTotal(this,400,'pickupDropService','pickupDropService','pickupDropService')"
         id="pickupDropService">
-      <label class="form-check-label  text-red red-text" for="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
         <h4>REQUEST PICK N DROP FOR UPTO 100 MILES EACH WAY AT ADDITIONAL £400</h4>
       </label>
     </div>
   </div>
 
-  <div class="pickup-drop d-flex py-4 bg-grey  text-red  flex-row justify-content-center">
-    <h3 class="display-6 fw-bold">Total Price: <span id="data-total-price">0</span></h3>
+  <div class="pickup-drop d-flex py-4 bg-grey flex-row justify-content-center">
+    <h3 class="display-6 fw-bold">Total Price: £<span id="data-total-price">0</span></h3>
   </div>
   <form action="/appointment" method="POST" id="frmAppointment">
     <div class="other-modification-services  bg-black p-5 text-light " id="chooseServices">
@@ -181,7 +123,7 @@
           </div>
         </div>
         <div class="bg-black mt-5 d-flex flex-row justify-content-center shadow-lg " style="background-color:#2d2d2d">
-          <p class="py-3 m-0"> <i class="bi bi-info-circle"></i> please note that the date and time you requested may
+          <p class="p-3 m-0"> <i class="bi bi-info-circle"></i> please note that the date and time you requested may
             not
             be available. we will contact you to confirm your actual appointment details. </p>
         </div>
