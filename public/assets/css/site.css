@@ -416,3 +416,37 @@ body {
 .text-justify {
   text-align: justify;
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: transparent;
+  background: none;
+  z-index: 1;
+}
+
+input[type="date"]:before {
+  color: transparent;
+  background: none;
+  display: block;
+  font-family: 'FontAwesome';
+  content: '\f073';
+  position: absolute;
+  right: 20px;
+  color: black;
+}
+
+ input[type="time"]::-webkit-calendar-picker-indicator {
+  color: transparent;
+  background: none;
+  z-index: 1;
+} 
+
+input[type="time"]:before {
+  color: transparent;
+  background: none;
+  display: block;
+  font-family: 'FontAwesome';
+  content: "\f017";
+  position: absolute;
+  right: 20px;
+  color: black;
+}

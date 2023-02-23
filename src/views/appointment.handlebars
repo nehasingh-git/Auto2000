@@ -28,9 +28,9 @@
     </h1>
     <div class="d-lg-flex  flex-lg-row d-sm-flex flex-sm-column justify-content-between ">
 
-      {{> appointment/serviceTypeCard data=data.minor_service otherItem=data.major_service  clickable=true}}
-       {{> appointment/serviceTypeCard data=data.major_service otherItem=data.minor_service  clickable=true}}
-      
+      {{> appointment/serviceTypeCard data=data.minor_service otherItem=data.major_service clickable=true}}
+      {{> appointment/serviceTypeCard data=data.major_service otherItem=data.minor_service clickable=true}}
+
     </div>
   </div>
   {{/if}}
@@ -114,12 +114,24 @@
         <h4 class="ps-lg-5 py-3"> CHOOSE DATE & TIME</h4>
         <div class="d-flex flex-row flex-wrap px-lg-5 justify-content-between fw-bold ">
           <div class="col-lg-6 col-12 pe-lg-5 ">
-            <div class="input-group">
+            {{!-- <div class="input-group">
               <input placeholder="Select Date" class="form-control date-input" type="date" name="appointmentDate">
+            </div> --}}
+            <div class="form-group">
+              <div class="input-group" >
+                <input placeholder="Select Date" class="form-control form-control-custom date-input" type="date" name="appointmentDate" />
+              </div>
             </div>
           </div>
           <div class="col-lg-6 col-12 pe-lg-5 pt-lg-0 pt-3">
-            <input type="time" class="form-control" value="10:05 AM" name="appointmentTime" />
+
+             <div class="form-group">
+              <div class="input-group" >
+                <input placeholder="Select Date" class="form-control form-control-custom date-input" type="time" name="appointmentTime" />
+              </div>
+            </div>
+
+            {{!-- <input type="time" class="form-control" value="10:05 AM" name="appointmentTime" /> --}}
           </div>
         </div>
         <div class="bg-black mt-5 d-flex flex-row justify-content-center shadow-lg " style="background-color:#2d2d2d">
@@ -137,6 +149,7 @@
     <input type="hidden" name="serviceArray" value="{}">
   </form>
 </div>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 {{#section 'script'}}
 <script type="text/javascript">
   document.forms[0].onsubmit = async (e) => {
