@@ -1,13 +1,16 @@
 {{#if clickable}}
-<label class="card-label m-lg-5 col-lg-5 col-12 mt-lg-0 mt-5">
+<label class="card-label m-lg-5   mt-lg-3 mt-5 ">
   <input type="radio" name="product" value="1" class="card-input-element"
     onchange="selectService({{data.cost}},'{{data.type}}','{{data.id}}','{{data.name}}', '{{otherItem.id}}','{{otherItem.cost}}')" />
 
   {{else}}
-  <div class="card-label m-lg-5 col-lg-5 col-12 mt-lg-0 mt-5">
+  <div class="card-label m-lg-5   mt-lg-0 mt-5 ">
     {{/if}}
-    <div class="card card-input">
-      <div class="service-box bg-grey w100"></div>
+    <div class="card card-input h-100">
+       <img class="card-img-top" src="../public/assets/images/{{data.icon}}.jpg"
+                    alt="brake pad replacement">
+      {{!-- <div class="service-box bg-grey w100"
+        style="background-image: url('../../../../public/assets/images/{{data.icon}}.jpg');"></div> --}}
       <div class="position-relative">
         <div class="bg-red choose-service-box"><img class="box" src="../public/assets/icons/{{data.icon}}.svg"></div>
       </div>

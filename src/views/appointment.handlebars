@@ -26,9 +26,14 @@
     <h1 class="ps-lg-5  d-flex flex-row  ">
       <span class="ps-lg-5 heading fw-bold red-text "> Choose A service </span>
     </h1>
-    <div class="d-lg-flex  flex-lg-row d-sm-flex flex-sm-column justify-content-between ">
+    <div class="d-lg-flex px-5 flex-lg-row d-sm-flex flex-sm-column justify-content-between ">
 
       {{> appointment/serviceTypeCard data=data.minor_service otherItem=data.major_service clickable=true}}
+      {{!-- <div class="card-label m-lg-5 col-1  mt-lg-3 mt-5 ">
+        <div class=" card-input h-100 display-6 fw-bold h-100">
+          <div class="card-body px-5">OR</div>
+        </div>
+      </div> --}}
       {{> appointment/serviceTypeCard data=data.major_service otherItem=data.minor_service clickable=true}}
 
     </div>

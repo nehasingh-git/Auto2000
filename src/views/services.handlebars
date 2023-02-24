@@ -13,7 +13,7 @@
   </div>
   {{#if data}}
   <div class="choose-services  bg-grey p-5  " id="chooseServices">
-    <div class="d-lg-flex  flex-lg-row d-sm-flex flex-sm-column justify-content-between ">
+    <div class="d-lg-flex  flex-lg-row d-sm-flex px-5 flex-sm-column justify-content-between ">
       {{> appointment/serviceTypeCard data=data.minor_service otherItem=data.major_service clickable=false}}
       {{> appointment/serviceTypeCard data=data.major_service otherItem=data.minor_service clickable=false}}
     </div>
