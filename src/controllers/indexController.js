@@ -18,6 +18,7 @@ module.exports = (function () {
 		try {
 
 			res.render('index', {
+				isHome:true,
 				layout: "layoutSite"
 			});
 		} catch (error) {
@@ -50,6 +51,21 @@ module.exports = (function () {
 				email: req.body.email
 			};
 			emailHelper.contactTeam(data);
+			var response = responseInit(true, "Success.", { "message": "we have acknowledged your request, our team will contact you soon" });
+			res.status(200).json(response);
+
+		} catch (error) {
+			console.log(error)
+			var response = responseInit(false, "Server Error.", { "message": "Server Error , Please try after some time" });
+			res.status(500).json(response);
+		}
+	}
+
+	function callBackViaMobile(req, res) {
+		try {
+			var phone = req.params.phone;
+			var data={phone:phone}
+			emailHelper.callBackViaMobile(data);
 			var response = responseInit(true, "Success.", { "message": "we have acknowledged your request, our team will contact you soon" });
 			res.status(200).json(response);
 
@@ -157,6 +173,7 @@ module.exports = (function () {
 	retVal.appointment = appointment;
 	retVal.services = services;
 	retVal.contactPost = contactPost;
+	retVal.callBackViaMobile = callBackViaMobile;
 	// return module
 	return retVal;
 })();

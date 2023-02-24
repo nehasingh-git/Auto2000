@@ -10,14 +10,18 @@
           For Virtual Consultation, Pickup and Drop Service
         </p>
       </div>
-      <div class="col-lg-6 d-flex flex-row flex-wrap pr-sm-1  justify-content-lg-end justify-content-center">
-        <div class=" pe-1 pe-lg-2 col-10 col-lg-6">
-          <input type="text" class="form-control form-rounded" placeholder="Phone No.">
-        </div>
-        <div class="col-10 col-lg-6 mt-lg-0 mt-3"> <button type="button"
-            class="w-100 btn btn-custom btn-sm ">Submit</button></div>
-
-      </div>
+      {{!--
+      <div> --}}
+        <form class="col-lg-6 d-flex flex-row flex-wrap pr-sm-1  justify-content-lg-end justify-content-center"
+          action="/callback" method="POST" id="frmCallback">
+          <div class="pe-1 pe-lg-2 col-10 col-lg-6">
+            <input type="text" name="phone" class="form-control form-rounded" placeholder="Phone No.">
+          </div>
+          <div class="col-10 col-lg-6 mt-lg-0 mt-3"> <button type="submit"
+              class="w-100 btn btn-custom btn-sm ">Submit</button></div>
+        </form>
+        {{!--
+      </div> --}}
     </div>
 
   </div>
@@ -35,13 +39,13 @@
     <div class="flex-even px-lg-5 mx-lg-3  ">
       <h6 class="fw-bold py-3">Useful Links</h6>
       <h6><a href="#about">About</a></h6>
-      <h6><a href="#services">Services</a></h6>
-      <h6><a href="#contact">Contact</a></h6>
+      <h6><a href="/services">Services</a></h6>
+      <h6><a href="/contact">Contact</a></h6>
     </div>
     <div class="flex-even px-lg-5 mx-lg-3  ">
       <h6 class="fw-bold py-3">Social</h6>
-      <h6><a href="#">Facebook</a></h6>
-      <h6><a href="#">Youtube</a></h6>
+      <h6><a target="_blank" href="https://www.facebook.com/people/Auto2000-Porsche-Specialist/100069223931903/"><i class="bi bi-facebook"></i> Facebook</a></h6>
+      <h6><a target="_blank"  href="https://www.youtube.com/@Auto2000Porsche"><i class="bi bi-youtube"></i> Youtube</a></h6>
     </div>
     <div class="flex-even px-lg-5 mx-lg-3  ">
       <div class="py-3">
@@ -62,3 +66,48 @@
     <p>Privacy Policy | Terms of Use</p>
   </div>
 </div>
+
+{{#section 'script'}}
+<script type="text/javascript">
+  document.getElementById('frmCallback').onsubmit = async (e) => {
+    try {
+      e.preventDefault();
+      var phone = document.getElementsByName('phone');
+      var phoneVal = phone[0].value
+      if (phoneVal) {
+        let formData = new FormData();
+        const params = new URLSearchParams([...new FormData(e.target).entries()]);
+        const response = await fetch("/callback/" + phoneVal, { method: "POST" })
+        const res = await response.json()
+        alert(res.data.message)
+      }
+      else {
+        alert("Please enter your phone number.");
+      }
+    } catch (e) {
+      console.log('error: ', e);
+    }
+  }
+
+
+  document.getElementById('frmCallback1').onsubmit = async (e) => {
+    try {
+      e.preventDefault();
+      var phone = document.getElementsByName('phone1');
+      var phoneVal = phone[0].value
+      if (phoneVal) {
+        let formData = new FormData();
+        const params = new URLSearchParams([...new FormData(e.target).entries()]);
+        const response = await fetch("/callback/" + phoneVal, { method: "POST" })
+        const res = await response.json()
+        alert(res.data.message)
+      }
+      else {
+        alert("Please enter your phone number.");
+      }
+    } catch (e) {
+      console.log('error: ', e);
+    }
+  }
+</script>
+{{/section}}

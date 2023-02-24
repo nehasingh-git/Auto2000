@@ -132,9 +132,36 @@ module.exports = (function () {
             console.log('exception while sending contact request mail. '+error)
         }
     }
+    function callBackViaMobile(data) {
+        try {
+            var programTabPath = path.join(__dirname, '..//views//email//', 'callBackViaMobile.handlebars');
+            var template = fs.readFileSync(programTabPath, "utf8");
+            var compiledTemplate = handlebars.compile(template);
+            var email = {
+                to: 'porscherepairsuk@gmail.com',
+                from: 'Porscherepairsuk@gmail.com',
+                subject: 'New Call Back Request',
+                text: 'sample data',
+                html: compiledTemplate({
+                    phone: data.phone
+                })
+            };
+            mailer.sendMail(email, function (err) {
+                if (!err) {
+                    console.log('call back request mail sent.')
+                } else {
+                    console.log(err.message)
+                }
+            });
+
+        } catch (error) {
+            console.log('exception while sending call back request mail. '+error)
+        }
+    }
     retVal.appointmentConfirmation = appointmentConfirmation;
     retVal.appointmentRequest = appointmentRequest;
     retVal.contactTeam = contactTeam;
+    retVal.callBackViaMobile =callBackViaMobile
     // return module
     return retVal;
 })();

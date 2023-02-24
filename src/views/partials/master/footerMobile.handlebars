@@ -10,14 +10,15 @@
           For Virtual Consultation, Pickup and Drop Service
         </p>
       </div>
-      <div class="col-lg-6 d-flex flex-row flex-wrap pr-sm-1  justify-content-lg-end justify-content-center">
-        <div class=" pe-1 pe-lg-2 col-10 col-lg-6">
-          <input type="text" class="form-control form-rounded" placeholder="Phone No.">
+      <form action="/callback" method="POST" id="frmCallback1">
+        <div class="col-lg-6 d-flex flex-row flex-wrap pr-sm-1  justify-content-lg-end justify-content-center">
+          <div class=" pe-1 pe-lg-2 col-10 col-lg-6">
+            <input type="text" name="phone1" class="form-control form-rounded" placeholder="Phone No.">
+          </div>
+          <div class="col-10 col-lg-6 mt-lg-0 mt-3"> <button type="submit"
+              class="w-100 btn btn-custom btn-sm ">Submit</button></div>
         </div>
-        <div class="col-10 col-lg-6 mt-lg-0 mt-3"> <button type="button"
-            class="w-100 btn btn-custom btn-sm ">Submit</button></div>
-
-      </div>
+      </form>
     </div>
 
   </div>
@@ -36,15 +37,15 @@
         <h6 class="fw-bold">Useful Links</h6>
         <div class="col d-flex flex-column ">
           <h6><a href="#about">About</a></h6>
-          <h6 class=""><a href="#services">Services</a></h6>
-          <h6 class=""><a href="#contact">Contact</a></h6>
+          <h6 class=""><a href="/services">Services</a></h6>
+          <h6 class=""><a href="/contact">Contact</a></h6>
         </div>
       </div>
       <div class="col d-flex flex-column mt-lg-0 mt-3">
         <h6 class="fw-bold">Social</h6>
         <div class="col d-flex flex-column ">
-          <h6><a href="#">Facebook</a></h6>
-          <h6><a href="#">Youtube</a></h6>
+         <h6><a target="_blank" href="https://www.facebook.com/people/Auto2000-Porsche-Specialist/100069223931903/"><i class="bi bi-facebook"></i> Facebook</a></h6>
+      <h6><a target="_blank"  href="https://www.youtube.com/@Auto2000Porsche"><i class="bi bi-youtube"></i> Youtube</a></h6>
         </div>
       </div>
       <div class="col d-flex flex-column  mt-lg-0 mt-3 ">
@@ -85,6 +86,3 @@
   </div>
   {{!-- <div class="" style="height:1000px"></div> --}}
 </div>
-
-
- 
