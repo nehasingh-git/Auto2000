@@ -67,47 +67,6 @@
   </div>
 </div>
 
-{{#section 'script'}}
-<script type="text/javascript">
-  document.getElementById('frmCallback').onsubmit = async (e) => {
-    try {
-      e.preventDefault();
-      var phone = document.getElementsByName('phone');
-      var phoneVal = phone[0].value
-      if (phoneVal) {
-        let formData = new FormData();
-        const params = new URLSearchParams([...new FormData(e.target).entries()]);
-        const response = await fetch("/callback/" + phoneVal, { method: "POST" })
-        const res = await response.json()
-        alert(res.data.message)
-      }
-      else {
-        alert("Please enter your phone number.");
-      }
-    } catch (e) {
-      console.log('error: ', e);
-    }
-  }
+{{!-- {{#section 'script'}}
 
-
-  document.getElementById('frmCallback1').onsubmit = async (e) => {
-    try {
-      e.preventDefault();
-      var phone = document.getElementsByName('phone1');
-      var phoneVal = phone[0].value
-      if (phoneVal) {
-        let formData = new FormData();
-        const params = new URLSearchParams([...new FormData(e.target).entries()]);
-        const response = await fetch("/callback/" + phoneVal, { method: "POST" })
-        const res = await response.json()
-        alert(res.data.message)
-      }
-      else {
-        alert("Please enter your phone number.");
-      }
-    } catch (e) {
-      console.log('error: ', e);
-    }
-  }
-</script>
-{{/section}}
+{{/section}} --}}

@@ -12,7 +12,7 @@
 
   </div>
   {{#if data}}
-  <div class="choose-services  bg-grey p-5  " id="chooseServices">
+  <div class="choose-services  bg-grey px-lg-5  py-5" id="chooseServices">
     <div class="d-lg-flex  flex-lg-row d-sm-flex px-5 flex-sm-column justify-content-between ">
       {{> appointment/serviceTypeCard data=data.minor_service otherItem=data.major_service clickable=false}}
       {{> appointment/serviceTypeCard data=data.major_service otherItem=data.minor_service clickable=false}}
@@ -35,7 +35,7 @@
 
 
 
-  <div class="other-modification-services p-5 bg-grey" id="chooseServices">
+  <div class="other-modification-services p-5 pt-0 bg-grey" id="chooseServices">
     <h1 class="ps-lg-5 d-flex flex-row  ">
       <span class="ps-lg-5 heading fw-bold red-text "> Vehicle Modifications</span>
     </h1>

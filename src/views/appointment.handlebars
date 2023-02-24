@@ -22,9 +22,9 @@
     </div>
   </div>
   {{#if data}}
-  <div class="choose-services  bg-grey p-5  " id="chooseServices">
+  <div class="choose-services  bg-grey px-lg-5 py-5  " id="chooseServices">
     <h1 class="ps-lg-5  d-flex flex-row  ">
-      <span class="ps-lg-5 heading fw-bold red-text "> Choose A service </span>
+      <span class="ps-5 heading fw-bold red-text "> Choose A service </span>
     </h1>
     <div class="d-lg-flex px-5 flex-lg-row d-sm-flex flex-sm-column justify-content-between ">
 
@@ -215,7 +215,6 @@
     document.getElementsByName("serviceArray")[0].value = JSON.stringify(serviceArray);
     document.getElementById("data-total-price").innerText = serviceArray.reduce((a, b) => +a + +b.cost, 0);
   }
-
   function selectService(cost, type, id, name, otherItemId, otherItemCost) {
     const found = serviceArray.find(el => el.id === id);
     if (!found) {
