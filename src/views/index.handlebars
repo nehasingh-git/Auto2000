@@ -180,13 +180,18 @@
                         <span class="ps-4"> Bring your Porsche</span></br>
                     </div>
                 </div>
-
-
                 <div class="d-flex mt-3">
                     <input type="registration" class="form-control form-control-custom" id="inputRegistration"
-                        aria-describedby="registrationHelp" placeholder="Registration No.">
+                        aria-describedby="registrationHelp" value="F370PLP" onblur="test(this)" placeholder="Registration No.">
                 </div>
-
+                <div class="d-flex mt-3">
+                    <select class="form-select" aria-label="Default select example" id="selectCarModel">
+                        <option selected> Please Select a Model</option>
+                        {{#each data}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
                 <div class="mt-4   mb-lg-4">
                     <button id="btnRegistration" type="button"
                         class="btn btn-primary bg-red btn-lg btn-block w-100">BOOK
@@ -211,11 +216,11 @@
         <div class="d-lg-flex flex-lg-row d-sm-flex flex-sm-column justify-content-center px-lg-5">
 
             <div class="card icon-box m-5 pb-0" data-aos="zoom-out">
-                <img class="card-img-top" src="../public/assets/images/clutch_replacement.jpg"
+                <img class="card-img-top" src="/public/assets/images/clutch_replacement.jpg"
                     alt="brake pad replacement">
 
                 <div class="icon-box position-relative">
-                    <img class="box" src="../public/assets/icons/clutch_replacement.svg"
+                    <img class="box" src="/public/assets/icons/clutch_replacement.svg"
                         style="height: 60px;width:60px;">
                 </div>
 
@@ -224,10 +229,10 @@
                 </div>
             </div>
             <div class="card icon-box m-5  pb-0" data-aos="zoom-out">
-                <img class="card-img-top" src="../public/assets/images/air_conditioning_service.jpg"
+                <img class="card-img-top" src="/public/assets/images/air_conditioning_service.jpg"
                     alt="brake pad replacement">
                 <div class="icon-box position-relative">
-                    <img class="box" src="../public/assets/icons/air_condition_rervice.svg"
+                    <img class="box" src="/public/assets/icons/air_condition_rervice.svg"
                         style="height: 60px;width:60px;">
                 </div>
                 <div class="card-body py-4 mb-2">
@@ -236,7 +241,7 @@
             </div>
 
             <div class="card icon-box m-5  pb-0" data-aos="zoom-out">
-                <img class="card-img-top" src="../public/assets/images/brake_pad_replacement.jpg"
+                <img class="card-img-top" src="/public/assets/images/brake_pad_replacement.jpg"
                     alt="brake pad replacement">
 
                 <div class="icon-box position-relative">

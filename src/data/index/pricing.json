@@ -376,7 +376,7 @@
       ]
     },
     {
-      "id": 964,
+      "id": "964",
       "minor_service": {
         "id": "minorService",
         "type": "minorService",
@@ -501,7 +501,7 @@
       ]
     },
     {
-      "id": 993,
+      "id": "993",
       "minor_service": {
         "id": "minorService",
         "type": "minorService",
@@ -1377,7 +1377,7 @@
       ]
     },
     {
-      "id": 924,
+      "id": "924",
       "minor_service": {
         "id": "minorService",
         "type": "minorService",
@@ -1502,7 +1502,7 @@
       ]
     },
     {
-      "id": 928,
+      "id": "928",
       "minor_service": {
         "id": "minorService",
         "type": "minorService",
@@ -1627,7 +1627,7 @@
       ]
     },
     {
-      "id": 944,
+      "id": "944",
       "minor_service": {
         "id": "minorService",
         "name": "Minor Service",

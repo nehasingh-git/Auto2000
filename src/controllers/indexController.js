@@ -11,14 +11,19 @@ module.exports = (function () {
 	emailHelper = require('./../helpers/emailHelper');
 	handlebars.registerHelper(handlebarshelper);
 	constants = require('../constants');
-	const nodemailer = require("nodemailer");
+	const axios = require('axios');
 	//Http request Functions   
 
 	function index(req, res) {
 		try {
-
+			allPricing = fileHelper.readFile("pricing.json", "index");
+			let data = {};
+			if (allPricing && allPricing.data) {
+				data = allPricing.data.map(function (item) { return { "id": item["id"], name: item["id"] } });
+			}
 			res.render('index', {
-				isHome:true,
+				isHome: true,
+				data: data,
 				layout: "layoutSite"
 			});
 		} catch (error) {
@@ -64,7 +69,7 @@ module.exports = (function () {
 	function callBackViaMobile(req, res) {
 		try {
 			var phone = req.params.phone;
-			var data={phone:phone}
+			var data = { phone: phone }
 			emailHelper.callBackViaMobile(data);
 			var response = responseInit(true, "Success.", { "message": "we have acknowledged your request, our team will contact you soon" });
 			res.status(200).json(response);
@@ -95,16 +100,17 @@ module.exports = (function () {
 	function appointmentGet(req, res) {
 		try {
 			var regNo = req.params.regNo;
+			var model = req.params.model;
+			//test(regNo)
 			allPricing = fileHelper.readFile("pricing.json", "index");
-			let dataData = {};
+			let data = {};
 			if (allPricing && allPricing.data) {
 				var obj = allPricing.data;
-				dataData = obj.find(e => e.id == regNo);
+				data = obj.find(e => e.id == model);
 			}
-			//console.log(dataData)
 			res.render('appointment', {
 				regNo: regNo,
-				data: dataData,
+				data: data,
 				layout: "layoutSite"
 			});
 
@@ -115,6 +121,61 @@ module.exports = (function () {
 			}))
 		}
 	};
+
+	function test(regNo) {
+		var axios = require('axios');
+
+		var data = JSON.stringify({ registrationNumber: 'AA19AAA' });
+
+		var config = {
+			method: 'post',
+			url:
+				'https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles',
+			headers: {
+				'x-api-key': 'p8RCmO5r2l1JwiHIdbjao9In8f6uRltP6C1jEIfR',
+				'Content-Type': 'application/json',
+			},
+			data: data,
+		};
+
+		axios(config)
+			.then(function (response) {
+				console.log(JSON.stringify(response.data));
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	}
+	function getMotDate(regNo) {
+		try {
+
+			body = {
+				'registrationNumber': "F370PLP"
+			}
+			const header = {
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+					'x-api-key': 'p8RCmO5r2l1JwiHIdbjao9In8f6uRltP6C1jEIfR'
+				},
+			}
+			axios.post('https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles', body, header)
+				.then((response) => {
+					if (response.status === 201) {
+						console.log('Req body:', response.data)
+						console.log('Req header :', response.headers)
+					}
+				})
+				.catch((e) => {
+					//console.error(e)
+				})
+
+		}
+		catch (error) {
+			console.log(error + 'Exception in retreving getMotDate for registration: ' + regNo)
+		}
+
+	}
 
 	function appointment(req, res) {
 		try {

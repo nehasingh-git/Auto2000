@@ -22,7 +22,7 @@ module.exports = (function () {
   router.route('/contact').post(indexController.contactPost);
   router.route('/callback/:phone').post(indexController.callBackViaMobile)
   router.route('/services').get(indexController.services);
-  router.route('/appointment/:regNo').get(indexController.appointmentGet);
+  router.route('/appointment/:regNo/:model').get(indexController.appointmentGet);
   router.route('/appointment').post(indexController.appointment);
   router.route('/403').get(errorController.unAuthorize);
   router.route('/404').get(errorController.notFound);
