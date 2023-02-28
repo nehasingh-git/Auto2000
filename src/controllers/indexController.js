@@ -132,7 +132,7 @@ module.exports = (function () {
 	};
 
 
-	async function getMotData(regNo) {
+	async function getMotData(regNo, req, res) {
 		try {
 			var data = JSON.stringify({
 				"registrationNumber": regNo
@@ -151,33 +151,22 @@ module.exports = (function () {
 			};
 
 
-			await axios(config)
-				.then(function (response) {
-					return response.data;
-				})
-				.catch(function (error) {
-					console.log(error);
-					return;
-				});
+			let result = await axios(config);
+			console.log(result)
+
 		}
 		catch (error) {
 			var error1 = error + 'Exception in retreving getMotDate for registration:';
-			console.log(error1 + regNo)
-			return;
+			res.end(error.message+" --------"+error.stack)
 		}
 	}
 
 
-
-	function getMotDate(req, res) {
+	async function getMotDate(req, res) {
 		try {
 			var regNo = req.params.regNo;
-			getMotData(regNo).then(response => {
-				res.render('error', {
-					status: 500,
-					message: "Technical Error Please try again later." + response
-				});
-			});
+			await getMotData(regNo, req, res);
+
 		}
 		catch (error) {
 			var error1 = error + 'Exception in retreving getMotDate for registration:';
