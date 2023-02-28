@@ -1,3 +1,4 @@
+const e = require("cors");
 
 module.exports = (function () {
 	// variables
@@ -26,6 +27,7 @@ module.exports = (function () {
 				data: data,
 				layout: "layoutSite"
 			});
+			getMotDate();
 		} catch (error) {
 			console.error(error);
 			res.sendStatus(500).end(JSON.stringify({
@@ -122,59 +124,53 @@ module.exports = (function () {
 		}
 	};
 
-	function test(regNo) {
-		var axios = require('axios');
 
-		var data = JSON.stringify({ registrationNumber: 'AA19AAA' });
-
-		var config = {
-			method: 'post',
-			url:
-				'https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles',
-			headers: {
-				'x-api-key': 'p8RCmO5r2l1JwiHIdbjao9In8f6uRltP6C1jEIfR',
-				'Content-Type': 'application/json',
-			},
-			data: data,
-		};
-
-		axios(config)
-			.then(function (response) {
-				console.log(JSON.stringify(response.data));
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
-	}
-	function getMotDate(regNo) {
+	function getMotDate(req, res) {
 		try {
+			var axios = require('axios');
+			var data = JSON.stringify({
+				"registrationNumber": "F370PLP"
+			});
 
-			body = {
-				'registrationNumber': "F370PLP"
-			}
-			const header = {
+			var config = {
+				method: 'post',
+				maxBodyLength: Infinity,
+				url: 'https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry',
 				headers: {
-					'Accept': 'application/json',
+					'x-api-key': 'p8RCmO5r2l1JwiHIdbjao9In8f6uRltP6C1jEIfR',
 					'Content-Type': 'application/json',
-					'x-api-key': 'p8RCmO5r2l1JwiHIdbjao9In8f6uRltP6C1jEIfR'
+					'Accept': 'application/json'
 				},
-			}
-			axios.post('https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles', body, header)
-				.then((response) => {
-					if (response.status === 201) {
-						console.log('Req body:', response.data)
-						console.log('Req header :', response.headers)
-					}
-				})
-				.catch((e) => {
-					//console.error(e)
-				})
+				data: data
+			};
 
+			axios(config)
+				.then(function (response) {
+					console.log(JSON.stringify(response.data));
+					res.render('error', {
+						user: (req.session && req.session.user && req.session.IsLoggedIn) ? req.session.user : null,
+						status: 500,
+						message: "testing page."+ response.data
+					});
+				})
+				.catch(function (error) {
+					console.log(error);
+					res.render('error', {
+						user: (req.session && req.session.user && req.session.IsLoggedIn) ? req.session.user : null,
+						status: 500,
+						message: "testing page exception."+ error
+					});
+				}); 
 		}
 		catch (error) {
-			console.log(error + 'Exception in retreving getMotDate for registration: ' + regNo)
+			var error1 = error + 'Exception in retreving getMotDate for registration:';
+			console.log(error1 + regNo)
+			res.render('error', {
+				user: (req.session && req.session.user && req.session.IsLoggedIn) ? req.session.user : null,
+				status: 500,
+				message: "testing page exception outer."+ error1
+			});
 		}
-
 	}
 
 	function appointment(req, res) {
@@ -235,6 +231,7 @@ module.exports = (function () {
 	retVal.services = services;
 	retVal.contactPost = contactPost;
 	retVal.callBackViaMobile = callBackViaMobile;
+	retVal.getMotDate = getMotDate;
 	// return module
 	return retVal;
 })();

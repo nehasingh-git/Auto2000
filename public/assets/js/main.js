@@ -1,4 +1,3 @@
-
 window.onload = function () {
   aos_init();
 }
@@ -43,9 +42,11 @@ async function test(e) {
   myHeaders.append("x-api-key", "p8RCmO5r2l1JwiHIdbjao9In8f6uRltP6C1jEIfR");
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("Accept", "application/json");
+  myHeaders.append("access-control-allow-credentials", "true");
+  myHeaders.append("access-control-allow-origin", "no-cors")
 
   var raw = JSON.stringify({
-    "registrationNumber": e.value ? e.value : "F370PLP"
+    "registrationNumber": e.value ? e.value : "AA19AsAA"
   });
 
   var requestOptions = {
@@ -54,11 +55,15 @@ async function test(e) {
     body: raw,
     redirect: 'follow'
   };
+  try {
 
-  fetch("https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+    fetch("https://uat.driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => alert(error))
+  } catch (error) {
+    alert(error)
+  }
 }
 
 // document.querySelector('#btnRegistration').addEventListener('click', registrationVehicle);
