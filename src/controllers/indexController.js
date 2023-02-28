@@ -1,4 +1,5 @@
 const e = require("cors");
+const { response } = require("express");
 
 module.exports = (function () {
 	// variables
@@ -110,11 +111,18 @@ module.exports = (function () {
 				var obj = allPricing.data;
 				data = obj.find(e => e.id == model);
 			}
-			res.render('appointment', {
-				regNo: regNo,
-				data: data,
-				layout: "layoutSite"
-			});
+			var motData = getMotData(regNo).then(response => {
+					console.log("------------------------" + response);
+					res.render('appointment', {
+						regNo: regNo,
+						data: data,
+						motExpiryDate: response ? response.motExpiryDate : new Date(),
+						layout: "layoutSite"
+					});
+				}
+
+			);
+
 
 		} catch (error) {
 			console.error(error);
@@ -125,9 +133,46 @@ module.exports = (function () {
 	};
 
 
+	async function getMotData(regNo) {
+		try {
+			var data = JSON.stringify({
+				"registrationNumber": regNo
+			});
+
+			var config = {
+				method: 'post',
+				maxBodyLength: Infinity,
+				url: 'https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry',
+				headers: {
+					'x-api-key': 'p8RCmO5r2l1JwiHIdbjao9In8f6uRltP6C1jEIfR',
+					'Content-Type': 'application/json',
+					'Accept': 'application/json'
+				},
+				data: data
+			};
+
+
+			await axios(config)
+				.then(function (response) {
+					return response.data;
+				})
+				.catch(function (error) {
+					console.log(error);
+					return;
+				});
+		}
+		catch (error) {
+			var error1 = error + 'Exception in retreving getMotDate for registration:';
+			console.log(error1 + regNo)
+			return;
+		}
+	}
+
+
+
 	function getMotDate(req, res) {
 		try {
-			var axios = require('axios');
+
 			var data = JSON.stringify({
 				"registrationNumber": "F370PLP"
 			});
@@ -150,7 +195,7 @@ module.exports = (function () {
 					res.render('error', {
 						user: (req.session && req.session.user && req.session.IsLoggedIn) ? req.session.user : null,
 						status: 500,
-						message: "testing page."+ response.data
+						message: "testing page." + response.data
 					});
 				})
 				.catch(function (error) {
@@ -158,9 +203,9 @@ module.exports = (function () {
 					res.render('error', {
 						user: (req.session && req.session.user && req.session.IsLoggedIn) ? req.session.user : null,
 						status: 500,
-						message: "testing page exception."+ error
+						message: "testing page exception." + error
 					});
-				}); 
+				});
 		}
 		catch (error) {
 			var error1 = error + 'Exception in retreving getMotDate for registration:';
@@ -168,7 +213,7 @@ module.exports = (function () {
 			res.render('error', {
 				user: (req.session && req.session.user && req.session.IsLoggedIn) ? req.session.user : null,
 				status: 500,
-				message: "testing page exception outer."+ error1
+				message: "testing page exception outer." + error1
 			});
 		}
 	}

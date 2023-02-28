@@ -42,11 +42,11 @@ async function test(e) {
   myHeaders.append("x-api-key", "p8RCmO5r2l1JwiHIdbjao9In8f6uRltP6C1jEIfR");
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("Accept", "application/json");
-  myHeaders.append("access-control-allow-credentials", "true");
-  myHeaders.append("access-control-allow-origin", "no-cors")
+  myHeaders.append("access-control-allow-origin", "*");
+  myHeaders.append("mode", "no-cors")
 
   var raw = JSON.stringify({
-    "registrationNumber": e.value ? e.value : "AA19AsAA"
+    "registrationNumber": e.value ? e.value : "F370PLP"
   });
 
   var requestOptions = {
