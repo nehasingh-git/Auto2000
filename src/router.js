@@ -24,7 +24,7 @@ module.exports = (function () {
   router.route('/services').get(indexController.services);
   router.route('/appointment/:regNo/:model').get(indexController.appointmentGet);
   router.route('/appointment').post(indexController.appointment);
-  router.route('/getMotDate').get(indexController.getMotDate);
+  router.route('/getMotDate/:regNo').get(indexController.getMotDate);
   router.route('/403').get(errorController.unAuthorize);
   router.route('/404').get(errorController.notFound);
   router.route('/serverError').get(errorController.serverError);

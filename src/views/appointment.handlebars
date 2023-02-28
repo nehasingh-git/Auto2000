@@ -8,16 +8,20 @@
         </div>
       </div>
     </div>
-    <p class="justify-content-center  text-center"> Your Vehicle Registration search for {ROB66} yielded following
+    <p class="justify-content-center  text-center"> Your Vehicle Registration search for {{regNo}} yielded following
       results</p>
     <div class="row text-center justify-content-center">
       <div class="col-lg-4">
         <p>MAKE & MODEL</p>
-        <P class="fw-bold">{{data.id}}</P>
+        <P class="fw-bold">{{make}}{{data.id}}</P>
       </div>
       <div class="col-lg-4">
         <p>MOT DUE DATE</p>
-        <P class="fw-bold">{{motExpiryDate}}</P>
+        <P class="fw-bold">
+          {{#if motExpiryDate}}
+          {{formatDate motExpiryDate 'MMM D yyyy'}}
+          {{/if}}
+        </P>
       </div>
     </div>
   </div>
@@ -164,7 +168,7 @@
     }
   }
 
-  
+
   function validataForm() {
     // return true;
     var name = document.getElementsByName('name');

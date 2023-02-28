@@ -111,16 +111,15 @@ module.exports = (function () {
 				var obj = allPricing.data;
 				data = obj.find(e => e.id == model);
 			}
-			var motData = getMotData(regNo).then(response => {
-					console.log("------------------------" + response);
-					res.render('appointment', {
-						regNo: regNo,
-						data: data,
-						motExpiryDate: response ? response.motExpiryDate : new Date(),
-						layout: "layoutSite"
-					});
-				}
-
+			getMotData(regNo).then(response => {
+				res.render('appointment', {
+					regNo: regNo,
+					data: data,
+					make: response ? response.make : '',
+					motExpiryDate: response ? response.motExpiryDate : '',
+					layout: "layoutSite"
+				});
+			}
 			);
 
 
@@ -172,49 +171,17 @@ module.exports = (function () {
 
 	function getMotDate(req, res) {
 		try {
-
-			var data = JSON.stringify({
-				"registrationNumber": "F370PLP"
-			});
-
-			var config = {
-				method: 'post',
-				maxBodyLength: Infinity,
-				url: 'https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry',
-				headers: {
-					'x-api-key': 'p8RCmO5r2l1JwiHIdbjao9In8f6uRltP6C1jEIfR',
-					'Content-Type': 'application/json',
-					'Accept': 'application/json'
-				},
-				data: data
-			};
-
-			axios(config)
-				.then(function (response) {
-					console.log(JSON.stringify(response.data));
-					res.render('error', {
-						user: (req.session && req.session.user && req.session.IsLoggedIn) ? req.session.user : null,
-						status: 500,
-						message: "testing page." + response.data
-					});
-				})
-				.catch(function (error) {
-					console.log(error);
-					res.render('error', {
-						user: (req.session && req.session.user && req.session.IsLoggedIn) ? req.session.user : null,
-						status: 500,
-						message: "testing page exception." + error
-					});
+			var regNo = req.params.regNo;
+			getMotData(regNo).then(response => {
+				res.render('error', {
+					status: 500,
+					message: "Technical Error Please try again later." + response
 				});
+			});
 		}
 		catch (error) {
 			var error1 = error + 'Exception in retreving getMotDate for registration:';
 			console.log(error1 + regNo)
-			res.render('error', {
-				user: (req.session && req.session.user && req.session.IsLoggedIn) ? req.session.user : null,
-				status: 500,
-				message: "testing page exception outer." + error1
-			});
 		}
 	}
 
