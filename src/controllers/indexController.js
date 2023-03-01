@@ -100,7 +100,7 @@ module.exports = (function () {
 		}
 	};
 
-	function appointmentGet(req, res) {
+	async function appointmentGet(req, res) {
 		try {
 			var regNo = req.params.regNo;
 			var model = req.params.model;
@@ -111,16 +111,15 @@ module.exports = (function () {
 				var obj = allPricing.data;
 				data = obj.find(e => e.id == model);
 			}
-			getMotData(regNo).then(response => {
-				res.render('appointment', {
-					regNo: regNo,
-					data: data,
-					make: response ? response.make : '',
-					motExpiryDate: response ? response.motExpiryDate : '',
-					layout: "layoutSite"
-				});
-			}
-			);
+			let vehicleData = await getMotData(regNo)
+
+			res.render('appointment', {
+				regNo: regNo,
+				data: data,
+				make: vehicleData ? vehicleData.make : '',
+				motExpiryDate: vehicleData ? vehicleData.motExpiryDate : '',
+				layout: "layoutSite"
+			});
 
 
 		} catch (error) {
@@ -132,7 +131,7 @@ module.exports = (function () {
 	};
 
 
-	async function getMotData(regNo, req, res) {
+	async function getMotData(regNo) {
 		try {
 			var data = JSON.stringify({
 				"registrationNumber": regNo
@@ -152,65 +151,51 @@ module.exports = (function () {
 
 
 			let result = await axios(config);
-			console.log(result)
+			return result;
 
 		}
 		catch (error) {
 			var error1 = error + 'Exception in retreving getMotDate for registration:';
-			res.end(error.message + " --------" + error.stack)
+			return "";
 		}
 	}
 
 
-	function test(req, res) {
-
-		var https = require('follow-redirects').https;
-		var fs = require('fs');
-
-		var options = {
-			method: 'POST',
-			hostname: 'driver-vehicle-licensing.api.gov.uk',
-			path: '/vehicle-enquiry/v1/vehicles',
-			headers: {
-				'x-api-key': 'p8RCmO5r2l1JwiHIdbjao9In8f6uRltP6C1jEIfR',
-				'Content-Type': 'application/json',
-			},
-			maxRedirects: 20,
-		};
-
-		var req = https.request(options, function (res) {
-			var chunks = [];
-
-			res.on('data', function (chunk) {
-				chunks.push(chunk);
-			});
-
-			res.on('end', function (chunk) {
-				var body = Buffer.concat(chunks);
-				console.log(body.toString());
-			});
-
-			res.on('error', function (error) {
-				console.error(error);
-			});
-		});
-
-		var postData = JSON.stringify({ registrationNumber: 'AA19AAA' });
-
-		req.write(postData);
-
-		req.end();
-
+	async function test(req, res) {
+		let ret= await getMotData("AA19AAA") 
+		if(ret)
+		res.end(vehicleData.motExpiryDate);
+		else{
+			res.end("Could not fetch result");
+		}
 	}
 	async function getMotDate(req, res) {
 		try {
-			var regNo = req.params.regNo;
-			await getMotData(regNo, req, res);
+			var request = require('request');
+			var options = {
+				'method': 'POST',
+				'url': 'https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles',
+				'headers': {
+					'x-api-key': 'p8RCmO5r2l1JwiHIdbjao9In8f6uRltP6C1jEIfR',
+					'Content-Type': 'application/json',
+					'Accept': 'application/json'
+				},
+				body: JSON.stringify({
+					"registrationNumber": "F370PLP"
+				})
 
-		}
-		catch (error) {
-			var error1 = error + 'Exception in retreving getMotDate for registration:';
-			console.log(error1 + regNo)
+			};
+			request(options, function (error, response) {
+				if (error) {
+					console.log(error)
+					res.end(error.message)
+				}
+				else { res.end(response.body) }
+			});
+
+		} catch (error) {
+			console.log(error.message)
+			res.end(error.message)
 		}
 	}
 
