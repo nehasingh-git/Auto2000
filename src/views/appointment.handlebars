@@ -13,7 +13,7 @@
     <div class="row text-center justify-content-center">
       <div class="col-lg-4">
         <p>MAKE & MODEL</p>
-        <P class="fw-bold">{{make}}{{data.id}}</P>
+        <P class="fw-bold">{{make}} {{data.name}}</P>
       </div>
       <div class="col-lg-4">
         <p>MOT DUE DATE</p>
@@ -151,6 +151,9 @@
       </div>
     </div>
     <input type="hidden" name="regNo" value="{{regNo}}">
+    <input type="hidden" name="motExpiryDate" value="{{motExpiryDate}}">
+     <input type="hidden" name="makeAndModel" value="{{make}} {{data.name}}">
+    
     <input type="hidden" name="serviceArray" value="{}">
   </form>
 </div>

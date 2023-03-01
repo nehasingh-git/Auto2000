@@ -2,6 +2,7 @@
   "data": [
     {
       "id": "boxster_986",
+      "name": "boxster 986",
       "minor_service": {
         "id": "minorService",
         "type": "minorService",
@@ -127,6 +128,7 @@
     },
     {
       "id": "boxster_987",
+      "name": "boxster 987",
       "minor_service": {
         "id": "minorService",
         "type": "minorService",
@@ -251,7 +253,8 @@
       ]
     },
     {
-      "id": "911 3.2/SC",
+      "id": "911_SC",
+      "name": "911 3.2/SC",
       "minor_service": {
         "id": "minorService",
         "type": "minorService",
@@ -377,6 +380,7 @@
     },
     {
       "id": "964",
+      "name": "964",
       "minor_service": {
         "id": "minorService",
         "type": "minorService",
@@ -502,6 +506,7 @@
     },
     {
       "id": "993",
+      "name":"993",
       "minor_service": {
         "id": "minorService",
         "type": "minorService",
@@ -627,6 +632,7 @@
     },
     {
       "id": "911_996",
+      "name": "911 996",
       "minor_service": {
         "id": "minorService",
         "type": "minorService",
@@ -752,6 +758,7 @@
     },
     {
       "id": "911_997",
+      "name": "911 997",
       "minor_service": {
         "id": "minorService",
         "type": "minorService",
@@ -877,6 +884,7 @@
     },
     {
       "id": "911_991",
+      "name": "911 991",
       "minor_service": {
         "id": "minorService",
         "type": "minorService",
@@ -1002,6 +1010,7 @@
     },
     {
       "id": "Cayenne",
+      "name": "Cayenne",
       "minor_service": {
         "id": "minorService",
         "type": "minorService",
@@ -1128,6 +1137,7 @@
     },
     {
       "id": "Panamera",
+      "name": "Panamera",
       "minor_service": {
         "id": "minorService",
         "type": "minorService",
@@ -1253,6 +1263,7 @@
     },
     {
       "id": "Macan",
+      "name": "Macan",
       "minor_service": {
         "id": "minorService",
         "type": "minorService",
@@ -1378,6 +1389,7 @@
     },
     {
       "id": "924",
+      "name": "924",
       "minor_service": {
         "id": "minorService",
         "type": "minorService",
@@ -1503,6 +1515,7 @@
     },
     {
       "id": "928",
+      "name": "928",
       "minor_service": {
         "id": "minorService",
         "type": "minorService",
@@ -1628,6 +1641,7 @@
     },
     {
       "id": "944",
+      "name": "944",
       "minor_service": {
         "id": "minorService",
         "name": "Minor Service",
