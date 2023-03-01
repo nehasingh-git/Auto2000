@@ -10,6 +10,8 @@
     "express-handlebars": "^6.0.7",
     "express-partial-response": "^1.0.4",
     "express-validator": "^6.14.3",
+    "follow-redirects": "^1.15.2",
+    "fs": "^0.0.1-security",
     "gulp": "^4.0.2",
     "gulp-nodemon": "^2.5.0",
     "moment": "^2.29.4",

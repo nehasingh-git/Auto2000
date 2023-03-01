@@ -157,11 +157,51 @@ module.exports = (function () {
 		}
 		catch (error) {
 			var error1 = error + 'Exception in retreving getMotDate for registration:';
-			res.end(error.message+" --------"+error.stack)
+			res.end(error.message + " --------" + error.stack)
 		}
 	}
 
 
+	function test(req, res) {
+
+		var https = require('follow-redirects').https;
+		var fs = require('fs');
+
+		var options = {
+			method: 'POST',
+			hostname: 'driver-vehicle-licensing.api.gov.uk',
+			path: '/vehicle-enquiry/v1/vehicles',
+			headers: {
+				'x-api-key': 'p8RCmO5r2l1JwiHIdbjao9In8f6uRltP6C1jEIfR',
+				'Content-Type': 'application/json',
+			},
+			maxRedirects: 20,
+		};
+
+		var req = https.request(options, function (res) {
+			var chunks = [];
+
+			res.on('data', function (chunk) {
+				chunks.push(chunk);
+			});
+
+			res.on('end', function (chunk) {
+				var body = Buffer.concat(chunks);
+				console.log(body.toString());
+			});
+
+			res.on('error', function (error) {
+				console.error(error);
+			});
+		});
+
+		var postData = JSON.stringify({ registrationNumber: 'AA19AAA' });
+
+		req.write(postData);
+
+		req.end();
+
+	}
 	async function getMotDate(req, res) {
 		try {
 			var regNo = req.params.regNo;
@@ -232,7 +272,7 @@ module.exports = (function () {
 	retVal.services = services;
 	retVal.contactPost = contactPost;
 	retVal.callBackViaMobile = callBackViaMobile;
-	retVal.getMotDate = getMotDate;
+	retVal.getMotDate = test;
 	// return module
 	return retVal;
 })();
