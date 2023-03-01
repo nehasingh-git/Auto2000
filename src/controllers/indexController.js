@@ -28,7 +28,6 @@ module.exports = (function () {
 				data: data,
 				layout: "layoutSite"
 			});
-			getMotDate();
 		} catch (error) {
 			console.error(error);
 			res.sendStatus(500).end(JSON.stringify({
@@ -111,13 +110,20 @@ module.exports = (function () {
 				var obj = allPricing.data;
 				data = obj.find(e => e.id == model);
 			}
-			let vehicleData = await getMotData(regNo)
+			let vehicleData = await getMotData(regNo, res)
+			if (vehicleData) {
+				console.log(vehicleData.data)
+			}
+			else {
+				console.log("error");
+			}
+
 
 			res.render('appointment', {
 				regNo: regNo,
 				data: data,
-				make: vehicleData ? vehicleData.make : '',
-				motExpiryDate: vehicleData ? vehicleData.motExpiryDate : '',
+				make: vehicleData && vehicleData.data ? vehicleData.data.make : '',
+				motExpiryDate: vehicleData && vehicleData.data ? vehicleData.data.motExpiryDate : '',
 				layout: "layoutSite"
 			});
 
@@ -145,64 +151,31 @@ module.exports = (function () {
 				data: data,
 			};
 
-			axios(config)
-				.then(function (response) {
-					console.log(JSON.stringify(response.data));
-					return response.data;
-				})
-				.catch(function (error) {
-					console.log(error.message);
-					return "";
-				});
-
+			return await axios(config)
 		}
 		catch (error) {
-			var error1 = error.message + 'Exception in retreving getMotDate for registration:';
+			var error1 = error.message + ' Exception in retreving getMotDate for registration:';
+			console.log(error1)
 			return "";
 		}
 	}
 
 
 	async function test(req, res) {
-		let ret = await getMotData("AA19AAA")
+		var regNo = req.params.regNo;
+		let ret = await getMotData(regNo)
 		if (ret) {
-
-			console.log(response)
-			res.end("success");
+			if (ret && ret.data)
+				res.end("success--- " + res.data);
+			else {
+				res.end("success")
+			}
 		}
 		else {
 			res.end("Could not fetch result");
 		}
 	}
-	async function getMotDate(req, res) {
-		try {
-			var request = require('request');
-			var options = {
-				'method': 'POST',
-				'url': 'https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles',
-				'headers': {
-					'x-api-key': 'p8RCmO5r2l1JwiHIdbjao9In8f6uRltP6C1jEIfR',
-					'Content-Type': 'application/json',
-					'Accept': 'application/json'
-				},
-				body: JSON.stringify({
-					"registrationNumber": "F370PLP"
-				})
 
-			};
-			request(options, function (error, response) {
-				if (error) {
-					console.log(error)
-					res.end(error.message)
-				}
-				else { res.end(response.body) }
-			});
-
-		} catch (error) {
-			console.log(error.message)
-			res.end(error.message)
-		}
-	}
 
 	function appointment(req, res) {
 		try {
