@@ -16,7 +16,7 @@ function aos_init() {
 
 
 document.querySelector('#btnRegistration').addEventListener('click', registrationVehicle);
-function registrationVehicle() {
+async function registrationVehicle() {
   var selectModel = document.getElementById('selectCarModel')
 
   var ele = document.querySelector("#inputRegistration");
@@ -24,60 +24,34 @@ function registrationVehicle() {
     alert("Please Enter Registration Number.")
   }
 
+
   else if (selectModel.value == 'Please Select a Model') {
     alert('Please Select a Model')
   }
   else if (ele.value.length < 3) {
     alert("Please Enter Valid Registration Number.")
   }
+
   else {
-    window.location.href = "./appointment/" + ele.value + '/' + selectModel.value;
+    let motData = await getMotData(ele.value);
+    if (motData.status == true) {
+      window.location.href = "./appointment/" + ele.value + '/' + selectModel.value;
+    }
+    else {
+      alert(motData.message);
+    }
+
   }
 }
 
 
-
-async function test(e) {
-  var myHeaders = new Headers();
-  myHeaders.append("x-api-key", "p8RCmO5r2l1JwiHIdbjao9In8f6uRltP6C1jEIfR");
-  myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("Accept", "application/json");
-  myHeaders.append("access-control-allow-origin", "*");
-  myHeaders.append("mode", "no-cors")
-
-  var raw = JSON.stringify({
-    "registrationNumber": e.value ? e.value : "F370PLP"
+async function getMotData(regNo) {
+  const response = await fetch("/getMot/" + regNo, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
   });
-
-  var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow'
-  };
-  try {
-
-    fetch("https://uat.driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => alert(error))
-  } catch (error) {
-    alert(error)
-  }
+  return await response.json()
 }
 
-// document.querySelector('#btnRegistration').addEventListener('click', registrationVehicle);
-// function registrationVehicle() {
-
-//   var ele = document.querySelector("#inputRegistration");
-//   if (!ele.value) {
-//     alert("Please Enter Registration Number.")
-//   }
-
-//   else if (ele.value.length < 3) {
-//     alert("Please Enter Valid Registration Number.")
-//   }
-//   else {
-//     window.location.href = "./appointment/" + ele.value;
-//   }
-// }

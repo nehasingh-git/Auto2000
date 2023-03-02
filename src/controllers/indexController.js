@@ -111,13 +111,6 @@ module.exports = (function () {
 				data = obj.find(e => e.id == model);
 			}
 			let vehicleData = await getMotData(regNo, res)
-			if (vehicleData) {
-				console.log(vehicleData.data)
-			}
-			else {
-				console.log("error");
-			}
-
 
 			res.render('appointment', {
 				regNo: regNo,
@@ -150,7 +143,6 @@ module.exports = (function () {
 				},
 				data: data,
 			};
-
 			return await axios(config)
 		}
 		catch (error) {
@@ -161,18 +153,33 @@ module.exports = (function () {
 	}
 
 
-	async function test(req, res) {
+	async function getMot(req, res) {
 		var regNo = req.params.regNo;
-		let ret = await getMotData(regNo)
-		if (ret) {
-			if (ret && ret.data)
-				res.end("success--- " + res.data);
+		let ret = await getMotData(regNo);
+		let vehicleData = await getMotData(regNo, res)
+		if (!vehicleData) {
+			res.send({ "status": false, "message": "Server error please try after sometime."})
+		}
+		else if (vehicleData && vehicleData.errors) {
+			var code = vehicleData.errors[0].code;
+			if (code == 404) {
+				res.send({ "status": false, "message": "Could not found vehicle for the given registration number." })
+			}
+			else if (code == 400) {
+				res.send({ "status": false, "message": "Invalid vehicle registration number." })
+			}
+			else if (code == 500) {
+				res.send({ "status": false, "message": "Server error in retrving vehicle." })
+			}
+			else if (code == 500) {
+				res.send({ "status": false, "message": "Please try after sometime." })
+			}
 			else {
-				res.end("success")
+				res.send({ "status": false, "message": "Server error please try after sometime." })
 			}
 		}
 		else {
-			res.end("Could not fetch result");
+			return res.send({ "status": true, "message": "success" })
 		}
 	}
 
@@ -235,7 +242,7 @@ module.exports = (function () {
 	retVal.services = services;
 	retVal.contactPost = contactPost;
 	retVal.callBackViaMobile = callBackViaMobile;
-	retVal.getMotDate = test;
+	retVal.getMot = getMot;
 	// return module
 	return retVal;
 })();
