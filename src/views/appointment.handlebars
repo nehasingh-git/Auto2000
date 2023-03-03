@@ -68,7 +68,7 @@
           <div class="d-flex flex-column align-items-center fw-bold">
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value=""
-                onchange="serviceTotal(this,{{cost}},'otherModification','{{id}}','{{name}}')" id="otherModification1">
+                onchange="serviceTotal(this,'{{cost}}','otherModification','{{id}}','{{name}}')" id="otherModification1">
               <label class="form-check-label" for="flexCheckDefault">
                 <p>{{name}}</p>
               </label>
@@ -152,8 +152,8 @@
     </div>
     <input type="hidden" name="regNo" value="{{regNo}}">
     <input type="hidden" name="motExpiryDate" value="{{motExpiryDate}}">
-     <input type="hidden" name="makeAndModel" value="{{make}} {{data.name}}">
-    
+    <input type="hidden" name="makeAndModel" value="{{make}} {{data.name}}">
+
     <input type="hidden" name="serviceArray" value="{}">
   </form>
 </div>
@@ -219,8 +219,7 @@
     } else {
       removeObjectWithId(serviceArray, id)
     }
-    document.getElementsByName("serviceArray")[0].value = JSON.stringify(serviceArray);
-    document.getElementById("data-total-price").innerText = serviceArray.reduce((a, b) => +a + +b.cost, 0);
+    setCostData();
   }
   function selectService(cost, type, id, name, otherItemId, otherItemCost) {
     const found = serviceArray.find(el => el.id === id);
@@ -231,9 +230,28 @@
     if (otherEle) {
       removeObjectWithId(serviceArray, otherItemId)
     }
-    document.getElementsByName("serviceArray")[0].value = JSON.stringify(serviceArray);
-    document.getElementById("data-total-price").innerText = serviceArray.reduce((a, b) => +a + +b.cost, 0);
+    setCostData();
   }
+
+  function setCostData() {
+    document.getElementsByName("serviceArray")[0].value = JSON.stringify(serviceArray);
+    // document.getElementById("data-total-price").innerText = serviceArray.reduce((a, b) => +a + +b.cost, 0);
+
+    var isPoa = false;
+    var cost = 0;
+    for (var i = 0; i < serviceArray.length; i++) {
+
+      if (serviceArray[i].cost == 'P/O/A') {
+        isPoa = true;
+      } else {
+        cost += parseInt(serviceArray[i].cost, 10);
+      }
+      document.getElementById("data-total-price").innerText = cost +""+ (isPoa ? "+ P/O/A" : "");
+
+      //serviceArray.reduce((a, b) => +a + +b.cost, 0);
+    }
+  }
+
 
 </script>
 {{/section}}
