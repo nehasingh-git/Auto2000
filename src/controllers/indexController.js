@@ -256,12 +256,8 @@ module.exports = (function () {
 					return item.cost != 0;
 				});
 			}
-
-
-
-
-			console.log(data)
-			let vehicleData = await getMotData(regNo, res)
+			//console.log(data)
+			let vehicleData = await getMotData(regNo)
 
 			res.render('appointment', {
 				regNo: regNo,
@@ -306,8 +302,9 @@ module.exports = (function () {
 
 	async function getMot(req, res) {
 		var regNo = req.params.regNo;
-		let ret = await getMotData(regNo);
-		let vehicleData = await getMotData(regNo, res)
+		let vehicleData = await getMotData(regNo);
+
+		console.log(vehicleData);
 		if (!vehicleData) {
 			res.send({ "status": false, "message": "Server error please try after sometime." })
 		}
