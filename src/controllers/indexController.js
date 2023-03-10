@@ -296,7 +296,7 @@ module.exports = (function () {
 			var error1 = error.message + ' Exception in retreving getMotDate for registration:';
 			console.log(error)
 			console.log(error1)
-			return await error;
+			return "";
 		}
 	}
 
@@ -305,7 +305,6 @@ module.exports = (function () {
 		var regNo = req.params.regNo;
 		let vehicleData = await getMotData(regNo);
 
-		console.log(vehicleData)
 		console.log(vehicleData);
 		if (!vehicleData) {
 			res.send({ "status": false, "message": "Server error please try after sometime." })
