@@ -295,9 +295,11 @@ module.exports = (function () {
 			return new Promise(function(resolve, reject) {
 				axios(config)
 				.then(function ({response}) {
+					console.log(response)
 					resolve(response.data);
 				   })
 				   .catch(function (error) {
+					console.log(error)
 					resolve(error);
 				   });
 			});
