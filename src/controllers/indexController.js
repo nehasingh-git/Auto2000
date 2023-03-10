@@ -308,23 +308,22 @@ module.exports = (function () {
 		catch (error) {
 			var error1 = error.message + ' Exception in retreving getMotDate for registration:';
 			console.log(error1)
-			if (error.message.indexOf(''))
+			if (error.message.indexOf('404') > 0) {
+				return { "code": 404 };
+			}
+			else if (error.message.indexOf('400')) {
+				return { "code": 400 };
+			}
+			else if (error.message.indexOf('500')) {
+				return { "code": 500 };
+			}
+			else if (error.message.indexOf('503')) {
+				return { "code": 503 };
+			}
+			else {
+				return { "code": 500 };
+			}
 
-				if (error.message.indexOf('404') > 0) {
-					return { "code": 404 };
-				}
-				else if (error.message.indexOf('400')) {
-					return { "code": 400 };
-				}
-				else if (error.message.indexOf('500')) {
-					return { "code": 500 };
-				}
-				else if (error.message.indexOf('503')) {
-					return { "code": 503 };
-				}
-				else {
-					return { "code": 500 };
-				}
 		}
 	}
 
