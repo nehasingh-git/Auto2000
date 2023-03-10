@@ -292,14 +292,24 @@ module.exports = (function () {
 			};
 			//return await axios(config)
 
-			await axios(config)
-				.then(function (response) {
-					return response.data;
-				})
-				.catch(function (error) {
-					console.log(error);
-					return error;
-				});
+			return new Promise(function(resolve, reject) {
+				axios(config)
+				.then(function ({response}) {
+					resolve(response.data);
+				   })
+				   .catch(function (error) {
+					resolve(error);
+				   });
+			});
+
+			// await axios(config)
+			// 	.then(function (response) {
+			// 		return response.data;
+			// 	})
+			// 	.catch(function (error) {
+			// 		console.log(error);
+			// 		return error;
+			// 	});
 
 		}
 		catch (error) {
