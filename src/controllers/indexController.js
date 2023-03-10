@@ -294,8 +294,9 @@ module.exports = (function () {
 		}
 		catch (error) {
 			var error1 = error.message + ' Exception in retreving getMotDate for registration:';
+			console.log(error)
 			console.log(error1)
-			return "";
+			return await error;
 		}
 	}
 
@@ -304,11 +305,12 @@ module.exports = (function () {
 		var regNo = req.params.regNo;
 		let vehicleData = await getMotData(regNo);
 
+		console.log(vehicleData)
 		console.log(vehicleData);
 		if (!vehicleData) {
 			res.send({ "status": false, "message": "Server error please try after sometime." })
 		}
-		else if (vehicleData && vehicleData.errors) {
+		else if (vehicleData && (vehicleData.code == 400 || vehicleData.code == 500 || vehicleData.code == 503) ) {
 			var code = vehicleData.errors[0].code;
 			if (code == 404) {
 				res.send({ "status": false, "message": "Could not found vehicle for the given registration number." })
@@ -319,7 +321,7 @@ module.exports = (function () {
 			else if (code == 500) {
 				res.send({ "status": false, "message": "Server error in retrving vehicle." })
 			}
-			else if (code == 500) {
+			else if (code == 503) {
 				res.send({ "status": false, "message": "Please try after sometime." })
 			}
 			else {

@@ -13,8 +13,12 @@ function aos_init() {
 }
 
 
+document.querySelector('#inputRegistration').addEventListener('keyup', capitalizeText);
 
-
+function capitalizeText() {
+  let x = document.getElementById("inputRegistration");
+  x.value = x.value.toUpperCase();
+}
 document.querySelector('#btnRegistration').addEventListener('click', registrationVehicle);
 async function registrationVehicle() {
   var selectModel = document.getElementById('selectCarModel')
