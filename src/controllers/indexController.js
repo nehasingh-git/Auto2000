@@ -290,35 +290,41 @@ module.exports = (function () {
 				},
 				data: data,
 			};
-			//return await axios(config)
+			return await axios(config)
 
-			return new Promise(function(resolve, reject) {
-				axios(config)
-				.then(function ({response}) {
-					console.log(response)
-					resolve(response.data);
-				   })
-				   .catch(function (error) {
-					console.log(error)
-					resolve(error);
-				   });
-			});
-
-			// await axios(config)
-			// 	.then(function (response) {
-			// 		return response.data;
-			// 	})
-			// 	.catch(function (error) {
-			// 		console.log(error);
-			// 		return error;
-			// 	});
+			// return new Promise(function(resolve, reject) {
+			// 	axios(config)
+			// 	.then(function ({response}) {
+			// 		console.log(response)
+			// 		resolve(response.data);
+			// 	   })
+			// 	   .catch(function (error) {
+			// 		console.log(error)
+			// 		resolve(error);
+			// 	   });
+			// });
 
 		}
 		catch (error) {
 			var error1 = error.message + ' Exception in retreving getMotDate for registration:';
-			console.log(error.code + '---------------------- error code')
 			console.log(error1)
-			return "";
+			if (error.message.indexOf(''))
+
+				if (error.message.indexOf('404') > 0) {
+					return { "code": 404 };
+				}
+				else if (error.message.indexOf('400')) {
+					return { "code": 400 };
+				}
+				else if (error.message.indexOf('500')) {
+					return { "code": 500 };
+				}
+				else if (error.message.indexOf('503')) {
+					return { "code": 503 };
+				}
+				else {
+					return { "code": 500 };
+				}
 		}
 	}
 
@@ -327,12 +333,11 @@ module.exports = (function () {
 		var regNo = req.params.regNo;
 		let vehicleData = await getMotData(regNo);
 
-		console.log(vehicleData);
 		if (!vehicleData) {
 			res.send({ "status": false, "message": "Server error please try after sometime." })
 		}
 		else if (vehicleData && (vehicleData.code == 400 || vehicleData.code == 500 || vehicleData.code == 503)) {
-			var code = vehicleData.errors[0].code;
+			var code = vehicleData.code;
 			if (code == 404) {
 				res.send({ "status": false, "message": "Could not found vehicle for the given registration number." })
 			}
