@@ -294,7 +294,7 @@ module.exports = (function () {
 		}
 		catch (error) {
 			var error1 = error.message + ' Exception in retreving getMotDate for registration:';
-			console.log(error)
+			console.log(error+ '---------------------- error code')
 			console.log(error1)
 			return "";
 		}
