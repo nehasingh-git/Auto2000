@@ -201,6 +201,9 @@
           "cost": "125"
         },
         {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "Water Pump Replacement",
           "cost": "520"
         },
         {
@@ -324,6 +327,9 @@
           "cost": "145"
         },
         {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "Water Pump Replacement",
           "cost": 0
         },
         {
@@ -570,6 +576,9 @@
           "cost": "195"
         },
         {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "Water Pump Replacement",
           "cost": 0
         },
         {
@@ -693,6 +702,9 @@
           "cost": "125"
         },
         {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "Water Pump Replacement",
           "cost": "520"
         },
         {
@@ -816,6 +828,9 @@
           "cost": "125"
         },
         {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "Water Pump Replacement",
           "cost": "520"
         },
         {
@@ -939,6 +954,9 @@
           "cost": "P/O/A"
         },
         {
+          "id": "water_pump_replacement",
+          "icon": "water_pump_replacement",
+          "name": "Water Pump Replacement",
           "cost": "600"
         },
         {

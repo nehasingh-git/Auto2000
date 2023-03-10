@@ -311,13 +311,13 @@ module.exports = (function () {
 			if (error.message.indexOf('404') > 0) {
 				return { "code": 404 };
 			}
-			else if (error.message.indexOf('400')) {
+			else if (error.message.indexOf('400') > 0) {
 				return { "code": 400 };
 			}
-			else if (error.message.indexOf('500')) {
+			else if (error.message.indexOf('500') > 0) {
 				return { "code": 500 };
 			}
-			else if (error.message.indexOf('503')) {
+			else if (error.message.indexOf('503') > 0) {
 				return { "code": 503 };
 			}
 			else {
