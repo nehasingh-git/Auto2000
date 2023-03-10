@@ -290,11 +290,16 @@ module.exports = (function () {
 				},
 				data: data,
 			};
-			return await axios(config)
+			//return await axios(config)
+
+			await axios(config).then((response) => { return response })
+				.catch((error) => {
+					console.log(error + '---------------------- error code')
+					return error;
+				})
 		}
 		catch (error) {
 			var error1 = error.message + ' Exception in retreving getMotDate for registration:';
-			console.log(error+ '---------------------- error code')
 			console.log(error1)
 			return "";
 		}
@@ -309,7 +314,7 @@ module.exports = (function () {
 		if (!vehicleData) {
 			res.send({ "status": false, "message": "Server error please try after sometime." })
 		}
-		else if (vehicleData && (vehicleData.code == 400 || vehicleData.code == 500 || vehicleData.code == 503) ) {
+		else if (vehicleData && (vehicleData.code == 400 || vehicleData.code == 500 || vehicleData.code == 503)) {
 			var code = vehicleData.errors[0].code;
 			if (code == 404) {
 				res.send({ "status": false, "message": "Could not found vehicle for the given registration number." })
