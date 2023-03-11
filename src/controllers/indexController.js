@@ -290,19 +290,20 @@ module.exports = (function () {
 				},
 				data: data,
 			};
-			return await axios(config)
+			//return await axios(config)
 
-			// return new Promise(function(resolve, reject) {
-			// 	axios(config)
-			// 	.then(function ({response}) {
-			// 		console.log(response)
-			// 		resolve(response.data);
-			// 	   })
-			// 	   .catch(function (error) {
-			// 		console.log(error)
-			// 		resolve(error);
-			// 	   });
-			// });
+			return new Promise(function(resolve, reject) {
+				axios(config)
+				.then(function ({response}) {
+					console.log(response + " response is")
+					console.log(response + " response data  is")
+					resolve(response.data);
+				   })
+				   .catch(function (error) {
+					console.log(error + "  error is")
+					resolve(error);
+				   });
+			});
 
 		}
 		catch (error) {
@@ -354,7 +355,7 @@ module.exports = (function () {
 			}
 		}
 		else {
-			return res.send({ "status": true, "message": "success" })
+			 res.send({ "status": true, "message": "success" })
 		}
 	}
 
